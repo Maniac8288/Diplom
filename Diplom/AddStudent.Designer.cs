@@ -66,8 +66,8 @@
             this.AddDormitories = new System.Windows.Forms.ComboBox();
             this.Dormitories = new System.Windows.Forms.Label();
             this.Atest = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.AddGPA = new System.Windows.Forms.TextBox();
+            this.GPA = new System.Windows.Forms.Label();
             this.AddStudentBD = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.InfoSchool.SuspendLayout();
@@ -414,8 +414,8 @@
             // 
             // Atest
             // 
-            this.Atest.Controls.Add(this.textBox1);
-            this.Atest.Controls.Add(this.label2);
+            this.Atest.Controls.Add(this.AddGPA);
+            this.Atest.Controls.Add(this.GPA);
             this.Atest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Atest.Location = new System.Drawing.Point(12, 400);
             this.Atest.Name = "Atest";
@@ -424,22 +424,22 @@
             this.Atest.TabStop = false;
             this.Atest.Text = "Оценки в Аттестате";
             // 
-            // label2
+            // AddGPA
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(89, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(191, 21);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Оценки через запятую";
+            this.AddGPA.Location = new System.Drawing.Point(8, 42);
+            this.AddGPA.Name = "AddGPA";
+            this.AddGPA.Size = new System.Drawing.Size(369, 22);
+            this.AddGPA.TabIndex = 28;
             // 
-            // textBox1
+            // GPA
             // 
-            this.textBox1.Location = new System.Drawing.Point(8, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(369, 22);
-            this.textBox1.TabIndex = 28;
+            this.GPA.AutoSize = true;
+            this.GPA.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GPA.Location = new System.Drawing.Point(89, 18);
+            this.GPA.Name = "GPA";
+            this.GPA.Size = new System.Drawing.Size(191, 21);
+            this.GPA.TabIndex = 27;
+            this.GPA.Text = "Оценки через запятую";
             // 
             // AddStudentBD
             // 
@@ -452,6 +452,7 @@
             this.AddStudentBD.TabIndex = 39;
             this.AddStudentBD.Text = "Добавить абитурента в БД";
             this.AddStudentBD.UseVisualStyleBackColor = false;
+            this.AddStudentBD.Click += new System.EventHandler(this.AddStudentBD_Click);
             // 
             // groupBox1
             // 
@@ -504,6 +505,7 @@
             this.Controls.Add(this.Documents);
             this.Controls.Add(this.InfoSchool);
             this.Name = "AddStudent";
+            this.Load += new System.EventHandler(this.AddStudent_Load);
             this.InfoSchool.ResumeLayout(false);
             this.InfoSchool.PerformLayout();
             this.Atest.ResumeLayout(false);
@@ -555,8 +557,8 @@
         private System.Windows.Forms.ComboBox AddDormitories;
         private System.Windows.Forms.Label Dormitories;
         private System.Windows.Forms.GroupBox Atest;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox AddGPA;
+        private System.Windows.Forms.Label GPA;
         private System.Windows.Forms.Button AddStudentBD;
         private System.Windows.Forms.GroupBox groupBox1;
     }
