@@ -10,22 +10,14 @@ using System.Windows.Forms;
 
 namespace Diplom
 {
-    public partial class Main : Form
+    public partial class AddStudent : Form
     {
-        public Main()
+        public AddStudent()
         {
             InitializeComponent();
         }
-        AddStudent addStudent;
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            addStudent = new AddStudent();
-            addStudent.Show();
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void InfoSchool_Enter(object sender, EventArgs e)
         {
 
         }
