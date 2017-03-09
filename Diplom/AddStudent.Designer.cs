@@ -35,9 +35,9 @@
             this.AddSecondName = new System.Windows.Forms.TextBox();
             this.SecondName = new System.Windows.Forms.Label();
             this.DataBirth = new System.Windows.Forms.Label();
-            this.DateBirth = new System.Windows.Forms.DateTimePicker();
-            this.DateDocument = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
+            this.AddDateBirth = new System.Windows.Forms.DateTimePicker();
+            this.AddDateDocument = new System.Windows.Forms.DateTimePicker();
+            this.DateDocument = new System.Windows.Forms.Label();
             this.AddNationality = new System.Windows.Forms.TextBox();
             this.Nationality = new System.Windows.Forms.Label();
             this.AddSocial = new System.Windows.Forms.TextBox();
@@ -136,29 +136,29 @@
             this.DataBirth.TabIndex = 6;
             this.DataBirth.Text = "Дата рождения";
             // 
-            // DateBirth
+            // AddDateBirth
             // 
-            this.DateBirth.Location = new System.Drawing.Point(23, 131);
-            this.DateBirth.Name = "DateBirth";
-            this.DateBirth.Size = new System.Drawing.Size(170, 20);
-            this.DateBirth.TabIndex = 7;
+            this.AddDateBirth.Location = new System.Drawing.Point(23, 131);
+            this.AddDateBirth.Name = "AddDateBirth";
+            this.AddDateBirth.Size = new System.Drawing.Size(170, 20);
+            this.AddDateBirth.TabIndex = 7;
+            // 
+            // AddDateDocument
+            // 
+            this.AddDateDocument.Location = new System.Drawing.Point(231, 131);
+            this.AddDateDocument.Name = "AddDateDocument";
+            this.AddDateDocument.Size = new System.Drawing.Size(170, 20);
+            this.AddDateDocument.TabIndex = 9;
             // 
             // DateDocument
             // 
-            this.DateDocument.Location = new System.Drawing.Point(231, 131);
+            this.DateDocument.AutoSize = true;
+            this.DateDocument.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateDocument.Location = new System.Drawing.Point(227, 92);
             this.DateDocument.Name = "DateDocument";
-            this.DateDocument.Size = new System.Drawing.Size(170, 20);
-            this.DateDocument.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(227, 92);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 21);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Дата приема документов";
+            this.DateDocument.Size = new System.Drawing.Size(210, 21);
+            this.DateDocument.TabIndex = 8;
+            this.DateDocument.Text = "Дата приема документов";
             // 
             // AddNationality
             // 
@@ -476,9 +476,9 @@
             this.groupBox1.Controls.Add(this.Social);
             this.groupBox1.Controls.Add(this.AddNationality);
             this.groupBox1.Controls.Add(this.Nationality);
+            this.groupBox1.Controls.Add(this.AddDateDocument);
             this.groupBox1.Controls.Add(this.DateDocument);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.DateBirth);
+            this.groupBox1.Controls.Add(this.AddDateBirth);
             this.groupBox1.Controls.Add(this.DataBirth);
             this.groupBox1.Controls.Add(this.AddSecondName);
             this.groupBox1.Controls.Add(this.SecondName);
@@ -526,9 +526,9 @@
         private System.Windows.Forms.TextBox AddSecondName;
         private System.Windows.Forms.Label SecondName;
         private System.Windows.Forms.Label DataBirth;
-        private System.Windows.Forms.DateTimePicker DateBirth;
-        private System.Windows.Forms.DateTimePicker DateDocument;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker AddDateBirth;
+        private System.Windows.Forms.DateTimePicker AddDateDocument;
+        private System.Windows.Forms.Label DateDocument;
         private System.Windows.Forms.TextBox AddNationality;
         private System.Windows.Forms.Label Nationality;
         private System.Windows.Forms.TextBox AddSocial;
