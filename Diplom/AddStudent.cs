@@ -15,13 +15,14 @@ namespace Diplom
 {
     public partial class AddStudent : Form
     {
-        private readonly string templateFileName = @"c:\test.docx";
+    
         public AddStudent()
         {
             InitializeComponent();
+        
              
     }
-
+        AddStudent addStudent;
         private void InfoSchool_Enter(object sender, EventArgs e)
         {
 
@@ -33,43 +34,46 @@ namespace Diplom
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void AddStudentBD_Click(object sender, EventArgs e)
         {
-          
-            var listGPA = AddGPA.Text.ToString().Split(',').Select(int.Parse).ToList();
-            Student NewStudent = new Student()
+            if (string.IsNullOrWhiteSpace(AddSurName.Text)||string.IsNullOrWhiteSpace(AddName.Text) || string.IsNullOrWhiteSpace(AddSecondName.Text) || string.IsNullOrWhiteSpace(AddNationality.Text) || string.IsNullOrWhiteSpace(AddDateBirth.Text) || string.IsNullOrWhiteSpace(ComboLanguage.Text) || string.IsNullOrWhiteSpace(AddCitizenship.Text) || string.IsNullOrWhiteSpace(AddForeignLanguage.Text) || string.IsNullOrWhiteSpace(AddHouse.Text)|| string.IsNullOrWhiteSpace(AddSex.Text) || string.IsNullOrWhiteSpace(AddDormitories.Text) || string.IsNullOrWhiteSpace(AddDocuments.Text) || string.IsNullOrWhiteSpace(AddSchool.Text) || string.IsNullOrWhiteSpace(AddEndSchool.Value.ToString()) || string.IsNullOrWhiteSpace(AddGPA.Text))
             {
-                SurName = AddSurName.Text.ToString(),
-                NameStudent = AddName.Text.ToString(),
-                SecondName = AddSecondName.Text.ToString(),
-                Nationality = AddNationality.Text.ToString(),
-                DateBirth = AddDateBirth.Value,
-                DateDocument = AddDateDocument.Value,
-                Social = AddSocial.Text.ToString(),
-                Language = ComboLanguage.Text.ToString(),
-                Citizenship = AddCitizenship.Text.ToString(),
-                ForeignLanguage = AddForeignLanguage.Text.ToString(),
-                Phone = AddPhone.Text.ToString(),
-                MilitaryID = AddTicket.Text.ToString(),
-                House = AddHouse.Text.ToString(),
-                Sex = AddSex.Text.ToString(),
-                Dormitories = AddDormitories.Text.ToString(),
-                Documents = AddDocuments.Text.ToString(),
-                School = AddSchool.Text.ToString(),
-                EndSchool = AddEndSchool.Value,
-                GPA = Computing.Instance.GetGPA(listGPA)
-        };
-            Computing.Instance.AddStudent(NewStudent);
-            var wordApp = new word.Application();
-            wordApp.Visible = false;
-            var wordDocument = wordApp.Documents.Open(templateFileName);
-            word.Table _table = wordDocument.Tables[1];
-            _table.Rows.Add(1);
+                Error.Text = "Введите все обязательные поля поля";
+            }
+            else
+            {
+                var listGPA = AddGPA.Text.ToString().Split(',').Select(int.Parse).ToList();
+                Student NewStudent = new Student()
+                {
+                    SurName = AddSurName.Text.ToString(),
+                    NameStudent = AddName.Text.ToString(),
+                    SecondName = AddSecondName.Text.ToString(),
+                    Nationality = AddNationality.Text.ToString(),
+                    DateBirth = AddDateBirth.Value,
+                    DateDocument = AddDateDocument.Value,
+                    Social = AddSocial.Text.ToString(),
+                    Language = ComboLanguage.Text.ToString(),
+                    Citizenship = AddCitizenship.Text.ToString(),
+                    ForeignLanguage = AddForeignLanguage.Text.ToString(),
+                    Phone = AddPhone.Text.ToString(),
+                    MilitaryID = AddTicket.Text.ToString(),
+                    House = AddHouse.Text.ToString(),
+                    Sex = AddSex.Text.ToString(),
+                    Dormitories = AddDormitories.Text.ToString(),
+                    Documents = AddDocuments.Text.ToString(),
+                    School = AddSchool.Text.ToString(),
+                    EndSchool = AddEndSchool.Value,
+                    GPA = Computing.Instance.GetGPA(listGPA)
+                };
+                Computing.Instance.AddStudent(NewStudent);
+            }
         }
-            
-        
-
         private void AddStudent_Load(object sender, EventArgs e)
         {
            
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
