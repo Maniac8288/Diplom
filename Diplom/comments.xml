@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Diplom</name>
+  </assembly>
+  <members>
+    <member name="" />
+    <member name="N:Diplom" />
+    <member name="M:Diplom.Main.Exit_Click(System.Object,EventArgs)" />
+  </members>
+</doc>

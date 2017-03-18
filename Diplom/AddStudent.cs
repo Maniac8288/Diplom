@@ -36,34 +36,44 @@ namespace Diplom
         {
             if (string.IsNullOrWhiteSpace(AddSurName.Text)||string.IsNullOrWhiteSpace(AddName.Text) || string.IsNullOrWhiteSpace(AddSecondName.Text) || string.IsNullOrWhiteSpace(AddNationality.Text) || string.IsNullOrWhiteSpace(AddDateBirth.Text) || string.IsNullOrWhiteSpace(ComboLanguage.Text) || string.IsNullOrWhiteSpace(AddCitizenship.Text) || string.IsNullOrWhiteSpace(AddForeignLanguage.Text) || string.IsNullOrWhiteSpace(AddHouse.Text)|| string.IsNullOrWhiteSpace(AddSex.Text) || string.IsNullOrWhiteSpace(AddDormitories.Text) || string.IsNullOrWhiteSpace(AddDocuments.Text) || string.IsNullOrWhiteSpace(AddSchool.Text) || string.IsNullOrWhiteSpace(AddEndSchool.Value.ToString()) || string.IsNullOrWhiteSpace(AddGPA.Text))
             {
-                Error.Text = "Введите все обязательные поля поля";
+                Error.Text = "Введите все обязательные поля";
             }
             else
             {
-                var listGPA = AddGPA.Text.ToString().Split(',').Select(int.Parse).ToList();
-                Student NewStudent = new Student()
+                try
                 {
-                    SurName = AddSurName.Text.ToString(),
-                    NameStudent = AddName.Text.ToString(),
-                    SecondName = AddSecondName.Text.ToString(),
-                    Nationality = AddNationality.Text.ToString(),
-                    DateBirth = AddDateBirth.Value,
-                    DateDocument = AddDateDocument.Value,
-                    Social = AddSocial.Text.ToString(),
-                    Language = ComboLanguage.Text.ToString(),
-                    Citizenship = AddCitizenship.Text.ToString(),
-                    ForeignLanguage = AddForeignLanguage.Text.ToString(),
-                    Phone = AddPhone.Text.ToString(),
-                    MilitaryID = AddTicket.Text.ToString(),
-                    House = AddHouse.Text.ToString(),
-                    Sex = AddSex.Text.ToString(),
-                    Dormitories = AddDormitories.Text.ToString(),
-                    Documents = AddDocuments.Text.ToString(),
-                    School = AddSchool.Text.ToString(),
-                    EndSchool = AddEndSchool.Value,
-                    GPA = Computing.Instance.GetGPA(listGPA)
-                };
-                Computing.Instance.AddStudent(NewStudent);
+                    var listGPA = AddGPA.Text.ToString().Split(',').Select(int.Parse).ToList();
+                    Student NewStudent = new Student()
+                    {
+                        SurName = AddSurName.Text.ToString(),
+                        NameStudent = AddName.Text.ToString(),
+                        SecondName = AddSecondName.Text.ToString(),
+                        Nationality = AddNationality.Text.ToString(),
+                        DateBirth = AddDateBirth.Value,
+                        DateDocument = AddDateDocument.Value,
+                        Social = AddSocial.Text.ToString(),
+                        Language = ComboLanguage.Text.ToString(),
+                        Citizenship = AddCitizenship.Text.ToString(),
+                        ForeignLanguage = AddForeignLanguage.Text.ToString(),
+                        Phone = AddPhone.Text.ToString(),
+                        MilitaryID = AddTicket.Text.ToString(),
+                        House = AddHouse.Text.ToString(),
+                        Sex = AddSex.Text.ToString(),
+                        Dormitories = AddDormitories.Text.ToString(),
+                        Documents = AddDocuments.Text.ToString(),
+                        School = AddSchool.Text.ToString(),
+                        EndSchool = AddEndSchool.Value,
+                        GPA = Computing.Instance.GetGPA(listGPA)
+                    };
+                    Computing.Instance.AddStudent(NewStudent);
+                    this.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Была допущена ошибка в подсчете среднего балла, убедитесь, что все оценки написаны через запятую.");
+                    
+                }
+               
             }
         }
         private void AddStudent_Load(object sender, EventArgs e)
