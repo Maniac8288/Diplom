@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +24,111 @@ namespace Diplom
                 db.Students.Add(student);
                 db.SaveChanges();
             }
+        }
+        public void EditStudent(Student student)
+        {
+            using (DataContext db= new DataContext())
+            {
+                Student OldStudent = db.Students.FirstOrDefault(x => x.ID == student.ID);
+                OldStudent.ID = student.ID;
+                OldStudent.MilitaryID = student.MilitaryID;
+                OldStudent.Citizenship = student.Citizenship;
+                OldStudent.School = student.School;
+                OldStudent.SecondName = student.SecondName;
+                OldStudent.Sex = student.Sex;
+                OldStudent.Social = student.Social;
+                OldStudent.SurName = student.SurName;
+                OldStudent.EndSchool = student.EndSchool;
+                OldStudent.NameStudent = student.NameStudent;
+                OldStudent.DateBirth = student.DateBirth;
+                OldStudent.DateDocument = student.DateDocument;
+                OldStudent.Documents = student.Documents;
+                OldStudent.Dormitories = student.Dormitories;
+                OldStudent.ForeignLanguage = student.ForeignLanguage;
+                OldStudent.GPA = student.GPA;
+                OldStudent.House = student.House;
+                OldStudent.Language = student.Language;
+                OldStudent.Nationality = student.Nationality;
+                OldStudent.NumberGroup = student.NumberGroup;
+                OldStudent.Phone = student.Phone;
+                db.SaveChanges();
+            }
+        }
+        /// <summary>
+        /// Удаление студента из базы данных
+        /// </summary>
+        /// <param name="Id">Ид студента.</param>
+        public void DeleteStudent(int Id)
+        {
+            using (DataContext db= new DataContext())
+            {
+                var student = db.Students.FirstOrDefault(x => x.ID == Id);
+                db.Students.Remove(student);
+                db.SaveChanges();
+            }
+        }
+        /// <summary>
+        /// Выбрать студента из БД по ID
+        /// </summary>
+        /// <param name="Id">Id</param>
+        /// <returns></returns>
+        public Student ChouseStudent(int Id)
+        {
+            using (DataContext db = new DataContext())
+            {
+                var student = db.Students.FirstOrDefault(x => x.ID == Id);
+                return student;
+            }
+        }
+        
+        public void DeleteExcess()
+        {
+            using (DataContext db = new DataContext())
+            {
+                for (int i = 111; i <= 115; i++)
+                {
+                   
+                    var group = db.Students.Where(x => x.NumberGroup == i.ToString()).ToList();
+                    var social = group.Where(x => x.Social != "").Take(20).OrderByDescending(x => x.GPA).ToList();
+                    var newGroup = group.OrderByDescending(x => x.GPA).Take(20 - social.Count()).ToList();
+                    //db.SdudentsRecevieds.RemoveRange(group);
+                    //db.SaveChanges();
+                    //db.SdudentsRecevieds.AddRange(newGroup);
+                    //db.SdudentsRecevieds.AddRange(social);
+                    //db.SaveChanges();
+                }
+
+            }
+        }
+            
+        public static Expression<Func<Student, StudentReceived>> ConvertStudent()
+        {
+            return student => new StudentReceived()
+            {
+                ID =student.ID,
+                MilitaryID=student.MilitaryID,
+                Citizenship=student.Citizenship,
+                School=student.School,
+                SecondName=student.SecondName,
+                Sex=student.Sex,
+                Social=student.Social,
+                SurName=student.SurName,
+                EndSchool=student.EndSchool,
+                NameStudent=student.NameStudent,
+                DateBirth=student.DateBirth,
+                DateDocument=student.DateDocument,
+                Documents=student.Documents,
+                Dormitories=student.Dormitories,
+                ForeignLanguage=student.ForeignLanguage,
+                GPA=student.GPA,
+                House=student.House,
+                Language=student.Language,
+                Nationality=student.Nationality,
+                NumberGroup=student.NumberGroup,
+                Phone=student.Phone
+
+
+            };
         }
         /// <summary>
         /// Вычисления среднего балла.
@@ -81,6 +187,7 @@ namespace Diplom
                         table.Cell(i, 15).Range.Text = "{Citizenship}";
                         table.Cell(i, 16).Range.Text = "{Social}";
                         table.Cell(i, 17).Range.Text = "{Nationality}";
+                        table.Cell(i, 18).Range.Text = "{NumberGroup}";
                         // Замена закладок на данные из БД
                         ReplaceWordSub("{id}", student.ID.ToString(), worddocument);
                         ReplaceWordSub("{name}", student.SurName + " "+student.NameStudent+" "+student.SecondName, worddocument);
@@ -100,6 +207,7 @@ namespace Diplom
                         ReplaceWordSub("{Citizenship}", student.Citizenship , worddocument);
                         ReplaceWordSub("{Social}", student.Social, worddocument);
                         ReplaceWordSub("{Nationality}", student.Nationality, worddocument);
+                        ReplaceWordSub("{NumberGroup}", student.NumberGroup, worddocument);
                     }
                     worddocument.SaveAs(filenameSave);
                     worddocument.Close();
@@ -117,6 +225,7 @@ namespace Diplom
             range.Find.ClearFormatting();
             range.Find.Execute(FindText: stubToReplace, ReplaceWith: text);
         }
+       
     }
 }
 

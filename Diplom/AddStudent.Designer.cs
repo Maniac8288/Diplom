@@ -71,6 +71,9 @@
             this.GPA = new System.Windows.Forms.Label();
             this.AddStudentBD = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.NubmerGroupChouse = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.NumberGroup = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -232,6 +235,7 @@
             this.ComboLanguage.Name = "ComboLanguage";
             this.ComboLanguage.Size = new System.Drawing.Size(121, 26);
             this.ComboLanguage.TabIndex = 15;
+            this.ComboLanguage.Text = "Русский";
             // 
             // AddCitizenship
             // 
@@ -411,6 +415,7 @@
             this.AddSex.Name = "AddSex";
             this.AddSex.Size = new System.Drawing.Size(121, 26);
             this.AddSex.TabIndex = 35;
+            this.AddSex.Text = "Мужской";
             // 
             // AddDormitories
             // 
@@ -422,6 +427,7 @@
             this.AddDormitories.Name = "AddDormitories";
             this.AddDormitories.Size = new System.Drawing.Size(121, 26);
             this.AddDormitories.TabIndex = 37;
+            this.AddDormitories.Text = "Нет";
             // 
             // Dormitories
             // 
@@ -493,6 +499,9 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBox1.Controls.Add(this.NubmerGroupChouse);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.NumberGroup);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
@@ -542,6 +551,43 @@
             this.groupBox1.TabIndex = 40;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Информация об абитуриенте";
+            // 
+            // NubmerGroupChouse
+            // 
+            this.NubmerGroupChouse.FormattingEnabled = true;
+            this.NubmerGroupChouse.Items.AddRange(new object[] {
+            "111",
+            "112",
+            "113",
+            "114",
+            "115"});
+            this.NubmerGroupChouse.Location = new System.Drawing.Point(632, 292);
+            this.NubmerGroupChouse.Name = "NubmerGroupChouse";
+            this.NubmerGroupChouse.Size = new System.Drawing.Size(121, 26);
+            this.NubmerGroupChouse.TabIndex = 57;
+            this.NubmerGroupChouse.Text = "111";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(754, 251);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(19, 21);
+            this.label16.TabIndex = 56;
+            this.label16.Text = "*";
+            this.label16.Click += new System.EventHandler(this.label16_Click);
+            // 
+            // NumberGroup
+            // 
+            this.NumberGroup.AutoSize = true;
+            this.NumberGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NumberGroup.Location = new System.Drawing.Point(629, 250);
+            this.NumberGroup.Name = "NumberGroup";
+            this.NumberGroup.Size = new System.Drawing.Size(119, 18);
+            this.NumberGroup.TabIndex = 55;
+            this.NumberGroup.Text = "Номер группы";
             // 
             // label12
             // 
@@ -727,6 +773,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackgroundImage = global::Diplom.Properties.Resources._434683_light_metal_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1362, 598);
@@ -815,5 +862,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button Exit;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label NumberGroup;
+        private System.Windows.Forms.ComboBox NubmerGroupChouse;
     }
 }

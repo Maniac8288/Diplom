@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Diplom
 {
-    public class Student
+    public class StudentReceived
     {
         /// <summary>
         /// Индификатор абитуриента

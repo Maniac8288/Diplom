@@ -22,7 +22,7 @@ namespace Diplom
         
              
     }
-        AddStudent addStudent;
+       
         private void InfoSchool_Enter(object sender, EventArgs e)
         {
 
@@ -63,14 +63,16 @@ namespace Diplom
                         Documents = AddDocuments.Text.ToString(),
                         School = AddSchool.Text.ToString(),
                         EndSchool = AddEndSchool.Value,
-                        GPA = Computing.Instance.GetGPA(listGPA)
+                        GPA = Computing.Instance.GetGPA(listGPA),
+                        NumberGroup = NubmerGroupChouse.Text.ToString()
+                        
                     };
                     Computing.Instance.AddStudent(NewStudent);
                     this.Close();
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Была допущена ошибка в подсчете среднего балла, убедитесь, что все оценки написаны через запятую.");
+                    MessageBox.Show(ex.ToString());
                     
                 }
                
@@ -84,6 +86,13 @@ namespace Diplom
         private void Exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+      
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

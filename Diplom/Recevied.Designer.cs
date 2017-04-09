@@ -1,6 +1,6 @@
 ﻿namespace Diplom
 {
-    partial class DataBase
+    partial class Recevied
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataBase));
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.studentReceivedsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameStudentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,36 +52,15 @@
             this.endSchoolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gPADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberGroupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._Students_mdfDataSet1 = new Diplom._Students_mdfDataSet();
-            this.studentsTableAdapter = new Diplom._Students_mdfDataSetTableAdapters.StudentsTableAdapter();
-            this.Delete_Student = new System.Windows.Forms.Button();
-            this.Edit_Student = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Students_mdfDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentReceivedsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // dataGridView2
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(993, 528);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(316, 32);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Удалить студентов с низким СРБ";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
             this.surNameDataGridViewTextBoxColumn,
             this.nameStudentDataGridViewTextBoxColumn,
@@ -104,11 +82,21 @@
             this.endSchoolDataGridViewTextBoxColumn,
             this.gPADataGridViewTextBoxColumn,
             this.numberGroupDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.studentsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1297, 399);
-            this.dataGridView1.TabIndex = 4;
+            this.dataGridView2.DataSource = this.studentReceivedsBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(1377, 238);
+            this.dataGridView2.TabIndex = 5;
+            // 
+            // _Students_mdfDataSet3
+            // 
+            // 
+            // studentReceivedsBindingSource
+            // 
+            this.studentReceivedsBindingSource.DataMember = "StudentReceiveds";
+            // 
+            // studentReceivedsTableAdapter
+            // 
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -237,77 +225,25 @@
             this.numberGroupDataGridViewTextBoxColumn.HeaderText = "NumberGroup";
             this.numberGroupDataGridViewTextBoxColumn.Name = "numberGroupDataGridViewTextBoxColumn";
             // 
-            // studentsBindingSource
-            // 
-            this.studentsBindingSource.DataMember = "Students";
-            this.studentsBindingSource.DataSource = this._Students_mdfDataSet1;
-            // 
-            // _Students_mdfDataSet1
-            // 
-            this._Students_mdfDataSet1.DataSetName = "_Students_mdfDataSet";
-            this._Students_mdfDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentsTableAdapter
-            // 
-            this.studentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // Delete_Student
-            // 
-            this.Delete_Student.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Delete_Student.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Delete_Student.BackgroundImage")));
-            this.Delete_Student.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Delete_Student.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Delete_Student.Image = ((System.Drawing.Image)(resources.GetObject("Delete_Student.Image")));
-            this.Delete_Student.Location = new System.Drawing.Point(193, 528);
-            this.Delete_Student.Name = "Delete_Student";
-            this.Delete_Student.Size = new System.Drawing.Size(316, 32);
-            this.Delete_Student.TabIndex = 7;
-            this.Delete_Student.Text = "Удалить выбраного абитурента";
-            this.Delete_Student.UseVisualStyleBackColor = false;
-            this.Delete_Student.Click += new System.EventHandler(this.Delete_Student_Click);
-            // 
-            // Edit_Student
-            // 
-            this.Edit_Student.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Edit_Student.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Edit_Student.BackgroundImage")));
-            this.Edit_Student.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Edit_Student.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Edit_Student.Image = ((System.Drawing.Image)(resources.GetObject("Edit_Student.Image")));
-            this.Edit_Student.Location = new System.Drawing.Point(596, 528);
-            this.Edit_Student.Name = "Edit_Student";
-            this.Edit_Student.Size = new System.Drawing.Size(348, 32);
-            this.Edit_Student.TabIndex = 8;
-            this.Edit_Student.Text = "Редактировать выбраного абитурента";
-            this.Edit_Student.UseVisualStyleBackColor = false;
-            this.Edit_Student.Click += new System.EventHandler(this.Edit_Student_Click);
-            // 
-            // DataBase
+            // Recevied
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1337, 572);
-            this.Controls.Add(this.Edit_Student);
-            this.Controls.Add(this.Delete_Student);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
-            this.Name = "DataBase";
-            this.Text = "База данных";
-            this.Load += new System.EventHandler(this.DataBase_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Students_mdfDataSet1)).EndInit();
+            this.ClientSize = new System.Drawing.Size(1401, 520);
+            this.Controls.Add(this.dataGridView2);
+            this.Name = "Recevied";
+            this.Text = "Recevied";
+            this.Load += new System.EventHandler(this.Recevied_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentReceivedsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private _Students_mdfDataSet _Students_mdfDataSet;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private _Students_mdfDataSet _Students_mdfDataSet1;
-        private System.Windows.Forms.BindingSource studentsBindingSource;
-        private _Students_mdfDataSetTableAdapters.StudentsTableAdapter studentsTableAdapter;
+
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.BindingSource studentReceivedsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn surNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameStudentDataGridViewTextBoxColumn;
@@ -329,7 +265,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn endSchoolDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gPADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numberGroupDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button Delete_Student;
-        private System.Windows.Forms.Button Edit_Student;
     }
 }

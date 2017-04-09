@@ -13,6 +13,7 @@ namespace Diplom
             { }
 
             public DbSet<Student> Students { get; set; }
+            public DbSet<StudentReceived> SdudentsRecevieds { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Student>().
@@ -30,7 +31,23 @@ namespace Diplom
                 .HasColumnType("datetime2")
                 .HasPrecision(0)
                 .IsRequired();
-           
+
+            modelBuilder.Entity<StudentReceived>().
+                Property(p => p.DateBirth)
+                .HasColumnType("datetime2")
+                .HasPrecision(0)
+                .IsRequired();
+            modelBuilder.Entity<StudentReceived>().
+                  Property(p => p.DateDocument)
+                  .HasColumnType("datetime2")
+                  .HasPrecision(0)
+                  .IsRequired();
+            modelBuilder.Entity<StudentReceived>().
+                Property(p => p.EndSchool)
+                .HasColumnType("datetime2")
+                .HasPrecision(0)
+                .IsRequired();
+
         }
 
     }

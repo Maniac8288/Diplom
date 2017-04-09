@@ -72,6 +72,12 @@
       <DependentUpon>DataBase.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContext.cs" />
+    <Compile Include="EditStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditStudent.Designer.cs">
+      <DependentUpon>EditStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,14 @@
     <Compile Include="Migrations\201703082334379_students2.Designer.cs">
       <DependentUpon>201703082334379_students2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704021853380_group.cs" />
+    <Compile Include="Migrations\201704021853380_group.Designer.cs">
+      <DependentUpon>201704021853380_group.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704022029355_newtable.cs" />
+    <Compile Include="Migrations\201704022029355_newtable.Designer.cs">
+      <DependentUpon>201704022029355_newtable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,6 +108,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Recevied.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recevied.Designer.cs">
+      <DependentUpon>Recevied.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StudentReceived.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="Computing.cs" />
     <Compile Include="_Students_mdfDataSet.Designer.cs">
@@ -107,6 +133,9 @@
     <EmbeddedResource Include="DataBase.resx">
       <DependentUpon>DataBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditStudent.resx">
+      <DependentUpon>EditStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,10 +145,19 @@
     <EmbeddedResource Include="Migrations\201703082334379_students2.resx">
       <DependentUpon>201703082334379_students2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704021853380_group.resx">
+      <DependentUpon>201704021853380_group.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704022029355_newtable.resx">
+      <DependentUpon>201704022029355_newtable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recevied.resx">
+      <DependentUpon>Recevied.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -131,6 +169,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="StudentDataSet.xsc">
+      <DependentUpon>StudentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StudentDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StudentDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StudentDataSet.xss">
+      <DependentUpon>StudentDataSet.xsd</DependentUpon>
+    </None>
     <None Include="_Students_mdfDataSet.xsc">
       <DependentUpon>_Students_mdfDataSet.xsd</DependentUpon>
     </None>
