@@ -39,9 +39,10 @@ namespace Diplom
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            Computing.Instance.DeleteExcess();
             Recivied = new Recevied();
             Recivied.Show();
-            Computing.Instance.DeleteExcess();
+           
         }
 
         private void Delete_Student_Click(object sender, EventArgs e)

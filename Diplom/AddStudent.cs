@@ -64,7 +64,9 @@ namespace Diplom
                         School = AddSchool.Text.ToString(),
                         EndSchool = AddEndSchool.Value,
                         GPA = Computing.Instance.GetGPA(listGPA),
-                        NumberGroup = NubmerGroupChouse.Text.ToString()
+                        NumberGroup = NubmerGroupChouse.Text.ToString(),
+                        Estimates = AddGPA.Text.ToString(),
+                        PhonePareant = AddPhonePareant.Text.ToString()
                         
                     };
                     Computing.Instance.AddStudent(NewStudent);

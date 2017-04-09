@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Diplom
+namespace Diplom.Models
 {
-    public class Student
+   public class ModelStudentReceived
     {
         /// <summary>
         /// Индификатор абитуриента
@@ -28,7 +28,7 @@ namespace Diplom
         /// <value>
         /// Имя.
         /// </value>
-        public string NameStudent { get; set;}
+        public string NameStudent { get; set; }
         /// <summary>
         /// Отчество абитуриента.
         /// </summary>

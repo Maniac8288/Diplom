@@ -152,5 +152,21 @@ namespace Diplom
         /// Номер группы
         /// </summary>
         public string NumberGroup { get; set; }
+        /// <summary>
+        /// Оценки абитуриента
+        /// </summary>
+        /// <value>
+        /// Оценки
+        /// </value>
+        public string Estimates { get; set; }
+        /// <summary>
+        ///Телефон родителей
+        /// </summary>
+        /// <value>
+        /// Родительский телефон
+        /// </value>
+        public string PhonePareant { get; set; }
     }
+
 }
+

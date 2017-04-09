@@ -19,6 +19,8 @@ namespace Diplom
 
         private void Recevied_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "_Students_mdfDataSet1.StudentReceiveds". При необходимости она может быть перемещена или удалена.
+            this.studentReceivedsTableAdapter.Fill(this._Students_mdfDataSet1.StudentReceiveds);
 
         }
     }

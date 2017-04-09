@@ -34,9 +34,12 @@ namespace Diplom
             AddDocuments.Text = student.Documents;
             AddSchool.Text = student.School;
             AddEndSchool.Value = student.EndSchool;
-            AddGPA.Text = student.GPA.ToString();
+            AddGPA.Text = student.Estimates;
             NubmerGroupChouse.Text = student.NumberGroup;
             ID.Tag = student.ID;
+            AddPhonePareant.Text = student.PhonePareant;
+            
+            
         }
 
         private void EditStudent_Load(object sender, EventArgs e)
@@ -77,8 +80,10 @@ namespace Diplom
                         EndSchool = AddEndSchool.Value,
                         GPA = Computing.Instance.GetGPA(listGPA),
                         NumberGroup = NubmerGroupChouse.Text.ToString(),
-                        ID = Convert.ToInt32(ID.Tag)
-                        
+                        ID = Convert.ToInt32(ID.Tag),
+                        Estimates = AddGPA.Text.ToString(),
+                        PhonePareant = AddPhonePareant.Text.ToString()
+
                     };
                     Computing.Instance.EditStudent(NewStudent);
                     this.Close();

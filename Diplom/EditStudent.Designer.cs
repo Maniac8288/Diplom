@@ -91,6 +91,8 @@
             this.EndSchool = new System.Windows.Forms.Label();
             this.Error = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.Label();
+            this.AddPhonePareant = new System.Windows.Forms.TextBox();
+            this.PhonePareant = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.Atest.SuspendLayout();
             this.InfoSchool.SuspendLayout();
@@ -138,6 +140,8 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBox1.Controls.Add(this.AddPhonePareant);
+            this.groupBox1.Controls.Add(this.PhonePareant);
             this.groupBox1.Controls.Add(this.NubmerGroupChouse);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.NumberGroup);
@@ -200,7 +204,7 @@
             "113",
             "114",
             "115"});
-            this.NubmerGroupChouse.Location = new System.Drawing.Point(632, 292);
+            this.NubmerGroupChouse.Location = new System.Drawing.Point(564, 292);
             this.NubmerGroupChouse.Name = "NubmerGroupChouse";
             this.NubmerGroupChouse.Size = new System.Drawing.Size(121, 26);
             this.NubmerGroupChouse.TabIndex = 57;
@@ -211,7 +215,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(754, 251);
+            this.label16.Location = new System.Drawing.Point(686, 247);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(19, 21);
             this.label16.TabIndex = 56;
@@ -221,7 +225,7 @@
             // 
             this.NumberGroup.AutoSize = true;
             this.NumberGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NumberGroup.Location = new System.Drawing.Point(629, 250);
+            this.NumberGroup.Location = new System.Drawing.Point(561, 250);
             this.NumberGroup.Name = "NumberGroup";
             this.NumberGroup.Size = new System.Drawing.Size(119, 18);
             this.NumberGroup.TabIndex = 55;
@@ -232,7 +236,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(579, 250);
+            this.label12.Location = new System.Drawing.Point(522, 250);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(19, 21);
             this.label12.TabIndex = 54;
@@ -243,7 +247,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(354, 250);
+            this.label11.Location = new System.Drawing.Point(328, 250);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(19, 21);
             this.label11.TabIndex = 53;
@@ -365,7 +369,7 @@
             this.AddDormitories.Items.AddRange(new object[] {
             "Да",
             "Нет"});
-            this.AddDormitories.Location = new System.Drawing.Point(447, 292);
+            this.AddDormitories.Location = new System.Drawing.Point(390, 292);
             this.AddDormitories.Name = "AddDormitories";
             this.AddDormitories.Size = new System.Drawing.Size(121, 26);
             this.AddDormitories.TabIndex = 37;
@@ -375,7 +379,7 @@
             // 
             this.Dormitories.AutoSize = true;
             this.Dormitories.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Dormitories.Location = new System.Drawing.Point(467, 250);
+            this.Dormitories.Location = new System.Drawing.Point(410, 250);
             this.Dormitories.Name = "Dormitories";
             this.Dormitories.Size = new System.Drawing.Size(99, 18);
             this.Dormitories.TabIndex = 36;
@@ -387,7 +391,7 @@
             this.AddSex.Items.AddRange(new object[] {
             "Женский",
             "Мужской"});
-            this.AddSex.Location = new System.Drawing.Point(286, 292);
+            this.AddSex.Location = new System.Drawing.Point(260, 292);
             this.AddSex.Name = "AddSex";
             this.AddSex.Size = new System.Drawing.Size(121, 26);
             this.AddSex.TabIndex = 35;
@@ -397,7 +401,7 @@
             // 
             this.Sex.AutoSize = true;
             this.Sex.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Sex.Location = new System.Drawing.Point(306, 250);
+            this.Sex.Location = new System.Drawing.Point(280, 250);
             this.Sex.Name = "Sex";
             this.Sex.Size = new System.Drawing.Size(40, 18);
             this.Sex.TabIndex = 34;
@@ -778,10 +782,28 @@
             this.ID.Size = new System.Drawing.Size(0, 13);
             this.ID.TabIndex = 68;
             // 
+            // AddPhonePareant
+            // 
+            this.AddPhonePareant.Location = new System.Drawing.Point(723, 294);
+            this.AddPhonePareant.Name = "AddPhonePareant";
+            this.AddPhonePareant.Size = new System.Drawing.Size(149, 24);
+            this.AddPhonePareant.TabIndex = 61;
+            // 
+            // PhonePareant
+            // 
+            this.PhonePareant.AutoSize = true;
+            this.PhonePareant.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PhonePareant.Location = new System.Drawing.Point(720, 254);
+            this.PhonePareant.Name = "PhonePareant";
+            this.PhonePareant.Size = new System.Drawing.Size(167, 18);
+            this.PhonePareant.TabIndex = 60;
+            this.PhonePareant.Text = "Телефон родителей";
+            // 
             // EditStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1402, 596);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.Error);
@@ -873,5 +895,7 @@
         private System.Windows.Forms.Label EndSchool;
         private System.Windows.Forms.Label Error;
         private System.Windows.Forms.Label ID;
+        private System.Windows.Forms.TextBox AddPhonePareant;
+        private System.Windows.Forms.Label PhonePareant;
     }
 }

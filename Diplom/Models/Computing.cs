@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diplom.Models;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +52,7 @@ namespace Diplom
                 OldStudent.Nationality = student.Nationality;
                 OldStudent.NumberGroup = student.NumberGroup;
                 OldStudent.Phone = student.Phone;
+                OldStudent.PhonePareant = student.PhonePareant;
                 db.SaveChanges();
             }
         }
@@ -85,25 +87,86 @@ namespace Diplom
         {
             using (DataContext db = new DataContext())
             {
+                db.SdudentsRecevieds.RemoveRange(db.SdudentsRecevieds);
+                db.SaveChanges();
                 for (int i = 111; i <= 115; i++)
                 {
-                   
-                    var group = db.Students.Where(x => x.NumberGroup == i.ToString()).ToList();
+                    var ModelStudentReceived = db.Students.Select(ConvertStudent());
+                    var group = ModelStudentReceived.Where(x => x.NumberGroup == i.ToString()).ToList();
                     var social = group.Where(x => x.Social != "").Take(20).OrderByDescending(x => x.GPA).ToList();
+                    foreach (var sociealItem in social)
+                    {
+                        group.Remove(sociealItem);
+                    }
                     var newGroup = group.OrderByDescending(x => x.GPA).Take(20 - social.Count()).ToList();
-                    //db.SdudentsRecevieds.RemoveRange(group);
-                    //db.SaveChanges();
-                    //db.SdudentsRecevieds.AddRange(newGroup);
-                    //db.SdudentsRecevieds.AddRange(social);
-                    //db.SaveChanges();
+                    foreach (var student in social)
+                    {
+                        var studentReceived = new StudentReceived()
+                        {
+                            ID = student.ID,
+                            MilitaryID = student.MilitaryID,
+                            Citizenship = student.Citizenship,
+                            School = student.School,
+                            SecondName = student.SecondName,
+                            Sex = student.Sex,
+                            Social = student.Social,
+                            SurName = student.SurName,
+                            EndSchool = student.EndSchool,
+                            NameStudent = student.NameStudent,
+                            DateBirth = student.DateBirth,
+                            DateDocument = student.DateDocument,
+                            Documents = student.Documents,
+                            Dormitories = student.Dormitories,
+                            ForeignLanguage = student.ForeignLanguage,
+                            GPA = student.GPA,
+                            House = student.House,
+                            Language = student.Language,
+                            Nationality = student.Nationality,
+                            NumberGroup = student.NumberGroup,
+                            Phone = student.Phone
+
+                        };
+                        db.SdudentsRecevieds.Add(studentReceived);
+                        db.SaveChanges();
+                    }
+                    foreach (var student in newGroup) {
+                        var studentReceived = new StudentReceived()
+                        {
+                            ID = student.ID,
+                            MilitaryID = student.MilitaryID,
+                            Citizenship = student.Citizenship,
+                            School = student.School,
+                            SecondName = student.SecondName,
+                            Sex = student.Sex,
+                            Social = student.Social,
+                            SurName = student.SurName,
+                            EndSchool = student.EndSchool,
+                            NameStudent = student.NameStudent,
+                            DateBirth = student.DateBirth,
+                            DateDocument = student.DateDocument,
+                            Documents = student.Documents,
+                            Dormitories = student.Dormitories,
+                            ForeignLanguage = student.ForeignLanguage,
+                            GPA = student.GPA,
+                            House = student.House,
+                            Language = student.Language,
+                            Nationality = student.Nationality,
+                            NumberGroup = student.NumberGroup,
+                            Phone = student.Phone
+
+                        };
+                        db.SdudentsRecevieds.Add(studentReceived);
+                        db.SaveChanges();
+                     }
+                   
                 }
 
             }
         }
             
-        public static Expression<Func<Student, StudentReceived>> ConvertStudent()
+        public static Expression<Func<Student, ModelStudentReceived>> ConvertStudent()
         {
-            return student => new StudentReceived()
+            return student => new ModelStudentReceived()
             {
                 ID =student.ID,
                 MilitaryID=student.MilitaryID,
@@ -126,8 +189,33 @@ namespace Diplom
                 Nationality=student.Nationality,
                 NumberGroup=student.NumberGroup,
                 Phone=student.Phone
-
-
+            };
+        }
+        public static Expression<Func<ModelStudentReceived, StudentReceived>> ConvertStudentReviced()
+        {
+            return student => new StudentReceived()
+            {
+                ID = student.ID,
+                MilitaryID = student.MilitaryID,
+                Citizenship = student.Citizenship,
+                School = student.School,
+                SecondName = student.SecondName,
+                Sex = student.Sex,
+                Social = student.Social,
+                SurName = student.SurName,
+                EndSchool = student.EndSchool,
+                NameStudent = student.NameStudent,
+                DateBirth = student.DateBirth,
+                DateDocument = student.DateDocument,
+                Documents = student.Documents,
+                Dormitories = student.Dormitories,
+                ForeignLanguage = student.ForeignLanguage,
+                GPA = student.GPA,
+                House = student.House,
+                Language = student.Language,
+                Nationality = student.Nationality,
+                NumberGroup = student.NumberGroup,
+                Phone = student.Phone
             };
         }
         /// <summary>
@@ -178,7 +266,7 @@ namespace Diplom
                         table.Cell(i, 6).Range.Text = "{ForeignLanguage}";
                         table.Cell(i, 7).Range.Text = "{School} {EndSchool}";
                         table.Cell(i, 8).Range.Text = "{GPA}";
-                        table.Cell(i, 9).Range.Text = "{House}";
+                        table.Cell(i, 9).Range.Text = "{House} {PhonePareant}";
                         table.Cell(i, 10).Range.Text = "{MilitaryID}";
                         table.Cell(i, 11).Range.Text = "{Documents}";
                         table.Cell(i, 12).Range.Text = "{Sex}";
@@ -199,6 +287,7 @@ namespace Diplom
                         ReplaceWordSub("{EndSchool}", student.EndSchool.ToLongDateString().ToString(), worddocument);
                         ReplaceWordSub("{GPA}", student.GPA.ToString(), worddocument);
                         ReplaceWordSub("{House}", student.House, worddocument);
+                        ReplaceWordSub("{PhonePareant}", student.PhonePareant, worddocument);
                         ReplaceWordSub("{MilitaryID}", student.MilitaryID, worddocument);
                         ReplaceWordSub("{Documents}", student.Documents, worddocument);
                         ReplaceWordSub("{Sex}", student.Sex, worddocument);
@@ -215,6 +304,14 @@ namespace Diplom
                 }
                 catch (Exception ex)
                 {
+                    try
+                    {
+                        worddocument.Close();
+                    }
+                    catch
+                    {
+
+                    }
                     return ex.ToString();
                 }
             }
