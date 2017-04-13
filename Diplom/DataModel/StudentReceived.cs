@@ -166,6 +166,13 @@ namespace Diplom
         /// Родительский телефон
         /// </value>
         public string PhonePareant { get; set; }
+        /// <summary>
+        /// Контракт или бюджет
+        /// </summary>
+        /// <value>
+        /// Контракт или бюджет
+        /// </value>
+        public string Contract { get; set; }
     }
 
 }

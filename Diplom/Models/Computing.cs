@@ -82,23 +82,44 @@ namespace Diplom
                 return student;
             }
         }
-        
+
         public void DeleteExcess()
         {
             using (DataContext db = new DataContext())
             {
                 db.SdudentsRecevieds.RemoveRange(db.SdudentsRecevieds);
                 db.SaveChanges();
-                for (int i = 111; i <= 115; i++)
+                for (int i = 111; i <= 114; i++)
                 {
+                    var NumberGroup = db.Groups.FirstOrDefault(x => x.Id == i);
                     var ModelStudentReceived = db.Students.Select(ConvertStudent());
                     var group = ModelStudentReceived.Where(x => x.NumberGroup == i.ToString()).ToList();
-                    var social = group.Where(x => x.Social != "").Take(20).OrderByDescending(x => x.GPA).ToList();
+                    var social = group.Where(x => x.Social != "").Take(NumberGroup.CountBudget).OrderByDescending(x => x.GPA).ToList();
                     foreach (var sociealItem in social)
                     {
                         group.Remove(sociealItem);
                     }
-                    var newGroup = group.OrderByDescending(x => x.GPA).Take(20 - social.Count()).ToList();
+                    var newGroupBudget = group.OrderByDescending(x => x.GPA).Take(NumberGroup.CountBudget - social.Count()).ToList();
+                    var NewGroupBudgetGaguz = newGroupBudget.Where(x => x.Citizenship != "ПМР");
+                    NewGroupBudgetGaguz.OrderByDescending(x=>x.GPA).Take(NumberGroup.Quota)
+                  
+                    var Quota = NumberGroup.Quota;
+                    for (int p = 0; p <= NewGroupBudgetCopy; p++)
+                    {
+                        if (newGroupBudget[p].Citizenship != "ПМР" && Quota == 0)
+                        {
+                            newGroupBudget.Remove(newGroupBudget[p]);
+
+                            Quota--;
+
+                        }
+                        else
+                        {
+                            group.Remove(newGroupBudget[p]);
+                        }
+                    }
+                  
+                    var newGroupContract = group.OrderByDescending(x => x.GPA).Take(NumberGroup.CountSeats - NumberGroup.CountBudget).ToList();
                     foreach (var student in social)
                     {
                         var studentReceived = new StudentReceived()
@@ -123,13 +144,17 @@ namespace Diplom
                             Language = student.Language,
                             Nationality = student.Nationality,
                             NumberGroup = student.NumberGroup,
-                            Phone = student.Phone
+                            Phone = student.Phone,
+                            Contract = "Бюджет",
+                            PhonePareant = student.PhonePareant,
+                            Estimates = student.Estimates
 
                         };
                         db.SdudentsRecevieds.Add(studentReceived);
                         db.SaveChanges();
                     }
-                    foreach (var student in newGroup) {
+                    foreach (var student in newGroupBudget)
+                    {
                         var studentReceived = new StudentReceived()
                         {
                             ID = student.ID,
@@ -152,15 +177,50 @@ namespace Diplom
                             Language = student.Language,
                             Nationality = student.Nationality,
                             NumberGroup = student.NumberGroup,
-                            Phone = student.Phone
+                            Phone = student.Phone,
+                            Contract = "Бюджет",
+                            PhonePareant = student.PhonePareant,
+                            Estimates = student.Estimates
 
                         };
                         db.SdudentsRecevieds.Add(studentReceived);
                         db.SaveChanges();
-                     }
-                   
-                }
 
+                    }
+                    foreach (var student in newGroupContract)
+                    {
+                        var studentReceived = new StudentReceived()
+                        {
+                            ID = student.ID,
+                            MilitaryID = student.MilitaryID,
+                            Citizenship = student.Citizenship,
+                            School = student.School,
+                            SecondName = student.SecondName,
+                            Sex = student.Sex,
+                            Social = student.Social,
+                            SurName = student.SurName,
+                            EndSchool = student.EndSchool,
+                            NameStudent = student.NameStudent,
+                            DateBirth = student.DateBirth,
+                            DateDocument = student.DateDocument,
+                            Documents = student.Documents,
+                            Dormitories = student.Dormitories,
+                            ForeignLanguage = student.ForeignLanguage,
+                            GPA = student.GPA,
+                            House = student.House,
+                            Language = student.Language,
+                            Nationality = student.Nationality,
+                            NumberGroup = student.NumberGroup,
+                            Phone = student.Phone,
+                            Contract = "Контракт",
+                            PhonePareant = student.PhonePareant,
+                            Estimates = student.Estimates
+                        };
+                        db.SdudentsRecevieds.Add(studentReceived);
+                        db.SaveChanges();
+                    }
+
+                }
             }
         }
             
@@ -188,7 +248,9 @@ namespace Diplom
                 Language=student.Language,
                 Nationality=student.Nationality,
                 NumberGroup=student.NumberGroup,
-                Phone=student.Phone
+                Phone=student.Phone,
+                PhonePareant =student.PhonePareant,
+                Estimates =student.Estimates
             };
         }
         public static Expression<Func<ModelStudentReceived, StudentReceived>> ConvertStudentReviced()
@@ -215,7 +277,9 @@ namespace Diplom
                 Language = student.Language,
                 Nationality = student.Nationality,
                 NumberGroup = student.NumberGroup,
-                Phone = student.Phone
+                Phone = student.Phone,
+                PhonePareant=student.PhonePareant,
+                Estimates = student.Estimates
             };
         }
         /// <summary>

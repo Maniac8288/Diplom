@@ -65,13 +65,20 @@
     <Compile Include="AddStudent.Designer.cs">
       <DependentUpon>AddStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChouseGroupAndSeats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChouseGroupAndSeats.Designer.cs">
+      <DependentUpon>ChouseGroupAndSeats.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataBase.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DataBase.Designer.cs">
       <DependentUpon>DataBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataContext.cs" />
+    <Compile Include="DataModel\DataContext.cs" />
+    <Compile Include="DataModel\Group.cs" />
     <Compile Include="EditStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,35 +91,30 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703082322361_students.cs" />
-    <Compile Include="Migrations\201703082322361_students.Designer.cs">
-      <DependentUpon>201703082322361_students.cs</DependentUpon>
+    <Compile Include="Groups.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\201703082334379_students2.cs" />
-    <Compile Include="Migrations\201703082334379_students2.Designer.cs">
-      <DependentUpon>201703082334379_students2.cs</DependentUpon>
+    <Compile Include="Groups.Designer.cs">
+      <DependentUpon>Groups.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704021853380_group.cs" />
-    <Compile Include="Migrations\201704021853380_group.Designer.cs">
-      <DependentUpon>201704021853380_group.cs</DependentUpon>
+    <Compile Include="Migrations\201704111957145_first.cs" />
+    <Compile Include="Migrations\201704111957145_first.Designer.cs">
+      <DependentUpon>201704111957145_first.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704022029355_newtable.cs" />
-    <Compile Include="Migrations\201704022029355_newtable.Designer.cs">
-      <DependentUpon>201704022029355_newtable.cs</DependentUpon>
+    <Compile Include="Migrations\201704112003556_Grups.cs" />
+    <Compile Include="Migrations\201704112003556_Grups.Designer.cs">
+      <DependentUpon>201704112003556_Grups.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704091430328_estimates.cs" />
-    <Compile Include="Migrations\201704091430328_estimates.Designer.cs">
-      <DependentUpon>201704091430328_estimates.cs</DependentUpon>
+    <Compile Include="Migrations\201704112101073_Grups2.cs" />
+    <Compile Include="Migrations\201704112101073_Grups2.Designer.cs">
+      <DependentUpon>201704112101073_Grups2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704091438103_PhonePareant.cs" />
-    <Compile Include="Migrations\201704091438103_PhonePareant.Designer.cs">
-      <DependentUpon>201704091438103_PhonePareant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704091520029_PhonePareantasd.cs" />
-    <Compile Include="Migrations\201704091520029_PhonePareantasd.Designer.cs">
-      <DependentUpon>201704091520029_PhonePareantasd.cs</DependentUpon>
+    <Compile Include="Migrations\201704112234388_Grups22.cs" />
+    <Compile Include="Migrations\201704112234388_Grups22.Designer.cs">
+      <DependentUpon>201704112234388_Grups22.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\GroupsComputing.cs" />
     <Compile Include="Models\ModelStudentReceived.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,8 +134,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StudentDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="StudentReceived.cs" />
-    <Compile Include="Student.cs" />
+    <Compile Include="DataModel\StudentReceived.cs" />
+    <Compile Include="DataModel\Student.cs" />
     <Compile Include="Models\Computing.cs" />
     <Compile Include="_Students_mdfDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -145,8 +147,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_Students_mdfDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_Students_mdfDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Students_mdfDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_Students_mdfDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Students_mdfDataSet3.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChouseGroupAndSeats.resx">
+      <DependentUpon>ChouseGroupAndSeats.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataBase.resx">
       <DependentUpon>DataBase.cs</DependentUpon>
@@ -157,26 +172,20 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703082322361_students.resx">
-      <DependentUpon>201703082322361_students.cs</DependentUpon>
+    <EmbeddedResource Include="Groups.resx">
+      <DependentUpon>Groups.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703082334379_students2.resx">
-      <DependentUpon>201703082334379_students2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704111957145_first.resx">
+      <DependentUpon>201704111957145_first.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704021853380_group.resx">
-      <DependentUpon>201704021853380_group.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704112003556_Grups.resx">
+      <DependentUpon>201704112003556_Grups.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704022029355_newtable.resx">
-      <DependentUpon>201704022029355_newtable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704112101073_Grups2.resx">
+      <DependentUpon>201704112101073_Grups2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704091430328_estimates.resx">
-      <DependentUpon>201704091430328_estimates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704091438103_PhonePareant.resx">
-      <DependentUpon>201704091438103_PhonePareant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704091520029_PhonePareantasd.resx">
-      <DependentUpon>201704091520029_PhonePareantasd.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704112234388_Grups22.resx">
+      <DependentUpon>201704112234388_Grups22.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -228,6 +237,28 @@
     </None>
     <None Include="_Students_mdfDataSet1.xss">
       <DependentUpon>_Students_mdfDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_Students_mdfDataSet2.xsc">
+      <DependentUpon>_Students_mdfDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_Students_mdfDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_Students_mdfDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_Students_mdfDataSet2.xss">
+      <DependentUpon>_Students_mdfDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_Students_mdfDataSet3.xsc">
+      <DependentUpon>_Students_mdfDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="_Students_mdfDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_Students_mdfDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_Students_mdfDataSet3.xss">
+      <DependentUpon>_Students_mdfDataSet3.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

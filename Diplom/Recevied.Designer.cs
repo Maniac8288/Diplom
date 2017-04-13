@@ -30,17 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this._Students_mdfDataSet1 = new Diplom._Students_mdfDataSet1();
             this.studentReceivedsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._Students_mdfDataSet1 = new Diplom._Students_mdfDataSet1();
             this.studentReceivedsTableAdapter = new Diplom._Students_mdfDataSet1TableAdapters.StudentReceivedsTableAdapter();
+            this._Students_mdfDataSet3 = new Diplom._Students_mdfDataSet3();
+            this.studentReceivedsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.studentReceivedsTableAdapter1 = new Diplom._Students_mdfDataSet3TableAdapters.StudentReceivedsTableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contract = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,8 +60,10 @@
             this.estimatesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phonePareantDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Students_mdfDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentReceivedsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Students_mdfDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Students_mdfDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentReceivedsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView2
@@ -67,13 +72,13 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
+            this.Contract,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
@@ -89,25 +94,39 @@
             this.dataGridViewTextBoxColumn21,
             this.estimatesDataGridViewTextBoxColumn,
             this.phonePareantDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.studentReceivedsBindingSource;
+            this.dataGridView2.DataSource = this.studentReceivedsBindingSource1;
             this.dataGridView2.Location = new System.Drawing.Point(12, 12);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(1377, 238);
             this.dataGridView2.TabIndex = 5;
-            // 
-            // _Students_mdfDataSet1
-            // 
-            this._Students_mdfDataSet1.DataSetName = "_Students_mdfDataSet1";
-            this._Students_mdfDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // studentReceivedsBindingSource
             // 
             this.studentReceivedsBindingSource.DataMember = "StudentReceiveds";
             this.studentReceivedsBindingSource.DataSource = this._Students_mdfDataSet1;
             // 
+            // _Students_mdfDataSet1
+            // 
+            this._Students_mdfDataSet1.DataSetName = "_Students_mdfDataSet1";
+            this._Students_mdfDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // studentReceivedsTableAdapter
             // 
             this.studentReceivedsTableAdapter.ClearBeforeFill = true;
+            // 
+            // _Students_mdfDataSet3
+            // 
+            this._Students_mdfDataSet3.DataSetName = "_Students_mdfDataSet3";
+            this._Students_mdfDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentReceivedsBindingSource1
+            // 
+            this.studentReceivedsBindingSource1.DataMember = "StudentReceiveds";
+            this.studentReceivedsBindingSource1.DataSource = this._Students_mdfDataSet3;
+            // 
+            // studentReceivedsTableAdapter1
+            // 
+            this.studentReceivedsTableAdapter1.ClearBeforeFill = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -115,6 +134,12 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "ID";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // Contract
+            // 
+            this.Contract.DataPropertyName = "Contract";
+            this.Contract.HeaderText = "Contract";
+            this.Contract.Name = "Contract";
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -151,12 +176,6 @@
             this.dataGridViewTextBoxColumn7.DataPropertyName = "DateDocument";
             this.dataGridViewTextBoxColumn7.HeaderText = "DateDocument";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Social";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Social";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -258,8 +277,10 @@
             this.Text = "Recevied";
             this.Load += new System.EventHandler(this.Recevied_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Students_mdfDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentReceivedsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Students_mdfDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Students_mdfDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentReceivedsBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -291,14 +312,17 @@
         private _Students_mdfDataSet1 _Students_mdfDataSet1;
         private System.Windows.Forms.BindingSource studentReceivedsBindingSource;
         private _Students_mdfDataSet1TableAdapters.StudentReceivedsTableAdapter studentReceivedsTableAdapter;
+        private _Students_mdfDataSet3 _Students_mdfDataSet3;
+        private System.Windows.Forms.BindingSource studentReceivedsBindingSource1;
+        private _Students_mdfDataSet3TableAdapters.StudentReceivedsTableAdapter studentReceivedsTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Contract;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;

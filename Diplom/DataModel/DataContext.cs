@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diplom.DataModel;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 
@@ -13,6 +14,7 @@ namespace Diplom
             { }
 
             public DbSet<Student> Students { get; set; }
+            public DbSet<Group> Groups { get; set; }
             public DbSet<StudentReceived> SdudentsRecevieds { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataBase));
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,30 +55,18 @@
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._Students_mdfDataSet1 = new Diplom._Students_mdfDataSet();
             this.studentsTableAdapter = new Diplom._Students_mdfDataSetTableAdapters.StudentsTableAdapter();
-            this.Delete_Student = new System.Windows.Forms.Button();
             this.Edit_Student = new System.Windows.Forms.Button();
+            this.Delete_Student = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._Students_mdfDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(993, 528);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(316, 32);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Удалить студентов с низким СРБ";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -107,6 +94,8 @@
             this.dataGridView1.DataSource = this.studentsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1297, 399);
             this.dataGridView1.TabIndex = 4;
             // 
@@ -122,120 +111,140 @@
             this.surNameDataGridViewTextBoxColumn.DataPropertyName = "SurName";
             this.surNameDataGridViewTextBoxColumn.HeaderText = "SurName";
             this.surNameDataGridViewTextBoxColumn.Name = "surNameDataGridViewTextBoxColumn";
+            this.surNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nameStudentDataGridViewTextBoxColumn
             // 
             this.nameStudentDataGridViewTextBoxColumn.DataPropertyName = "NameStudent";
             this.nameStudentDataGridViewTextBoxColumn.HeaderText = "NameStudent";
             this.nameStudentDataGridViewTextBoxColumn.Name = "nameStudentDataGridViewTextBoxColumn";
+            this.nameStudentDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // secondNameDataGridViewTextBoxColumn
             // 
             this.secondNameDataGridViewTextBoxColumn.DataPropertyName = "SecondName";
             this.secondNameDataGridViewTextBoxColumn.HeaderText = "SecondName";
             this.secondNameDataGridViewTextBoxColumn.Name = "secondNameDataGridViewTextBoxColumn";
+            this.secondNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nationalityDataGridViewTextBoxColumn
             // 
             this.nationalityDataGridViewTextBoxColumn.DataPropertyName = "Nationality";
             this.nationalityDataGridViewTextBoxColumn.HeaderText = "Nationality";
             this.nationalityDataGridViewTextBoxColumn.Name = "nationalityDataGridViewTextBoxColumn";
+            this.nationalityDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dateBirthDataGridViewTextBoxColumn
             // 
             this.dateBirthDataGridViewTextBoxColumn.DataPropertyName = "DateBirth";
             this.dateBirthDataGridViewTextBoxColumn.HeaderText = "DateBirth";
             this.dateBirthDataGridViewTextBoxColumn.Name = "dateBirthDataGridViewTextBoxColumn";
+            this.dateBirthDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dateDocumentDataGridViewTextBoxColumn
             // 
             this.dateDocumentDataGridViewTextBoxColumn.DataPropertyName = "DateDocument";
             this.dateDocumentDataGridViewTextBoxColumn.HeaderText = "DateDocument";
             this.dateDocumentDataGridViewTextBoxColumn.Name = "dateDocumentDataGridViewTextBoxColumn";
+            this.dateDocumentDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // socialDataGridViewTextBoxColumn
             // 
             this.socialDataGridViewTextBoxColumn.DataPropertyName = "Social";
             this.socialDataGridViewTextBoxColumn.HeaderText = "Social";
             this.socialDataGridViewTextBoxColumn.Name = "socialDataGridViewTextBoxColumn";
+            this.socialDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // languageDataGridViewTextBoxColumn
             // 
             this.languageDataGridViewTextBoxColumn.DataPropertyName = "Language";
             this.languageDataGridViewTextBoxColumn.HeaderText = "Language";
             this.languageDataGridViewTextBoxColumn.Name = "languageDataGridViewTextBoxColumn";
+            this.languageDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // citizenshipDataGridViewTextBoxColumn
             // 
             this.citizenshipDataGridViewTextBoxColumn.DataPropertyName = "Citizenship";
             this.citizenshipDataGridViewTextBoxColumn.HeaderText = "Citizenship";
             this.citizenshipDataGridViewTextBoxColumn.Name = "citizenshipDataGridViewTextBoxColumn";
+            this.citizenshipDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // foreignLanguageDataGridViewTextBoxColumn
             // 
             this.foreignLanguageDataGridViewTextBoxColumn.DataPropertyName = "ForeignLanguage";
             this.foreignLanguageDataGridViewTextBoxColumn.HeaderText = "ForeignLanguage";
             this.foreignLanguageDataGridViewTextBoxColumn.Name = "foreignLanguageDataGridViewTextBoxColumn";
+            this.foreignLanguageDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // phoneDataGridViewTextBoxColumn
             // 
             this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
             this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
             this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // militaryIDDataGridViewTextBoxColumn
             // 
             this.militaryIDDataGridViewTextBoxColumn.DataPropertyName = "MilitaryID";
             this.militaryIDDataGridViewTextBoxColumn.HeaderText = "MilitaryID";
             this.militaryIDDataGridViewTextBoxColumn.Name = "militaryIDDataGridViewTextBoxColumn";
+            this.militaryIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // houseDataGridViewTextBoxColumn
             // 
             this.houseDataGridViewTextBoxColumn.DataPropertyName = "House";
             this.houseDataGridViewTextBoxColumn.HeaderText = "House";
             this.houseDataGridViewTextBoxColumn.Name = "houseDataGridViewTextBoxColumn";
+            this.houseDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // sexDataGridViewTextBoxColumn
             // 
             this.sexDataGridViewTextBoxColumn.DataPropertyName = "Sex";
             this.sexDataGridViewTextBoxColumn.HeaderText = "Sex";
             this.sexDataGridViewTextBoxColumn.Name = "sexDataGridViewTextBoxColumn";
+            this.sexDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dormitoriesDataGridViewTextBoxColumn
             // 
             this.dormitoriesDataGridViewTextBoxColumn.DataPropertyName = "Dormitories";
             this.dormitoriesDataGridViewTextBoxColumn.HeaderText = "Dormitories";
             this.dormitoriesDataGridViewTextBoxColumn.Name = "dormitoriesDataGridViewTextBoxColumn";
+            this.dormitoriesDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // documentsDataGridViewTextBoxColumn
             // 
             this.documentsDataGridViewTextBoxColumn.DataPropertyName = "Documents";
             this.documentsDataGridViewTextBoxColumn.HeaderText = "Documents";
             this.documentsDataGridViewTextBoxColumn.Name = "documentsDataGridViewTextBoxColumn";
+            this.documentsDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // schoolDataGridViewTextBoxColumn
             // 
             this.schoolDataGridViewTextBoxColumn.DataPropertyName = "School";
             this.schoolDataGridViewTextBoxColumn.HeaderText = "School";
             this.schoolDataGridViewTextBoxColumn.Name = "schoolDataGridViewTextBoxColumn";
+            this.schoolDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // endSchoolDataGridViewTextBoxColumn
             // 
             this.endSchoolDataGridViewTextBoxColumn.DataPropertyName = "EndSchool";
             this.endSchoolDataGridViewTextBoxColumn.HeaderText = "EndSchool";
             this.endSchoolDataGridViewTextBoxColumn.Name = "endSchoolDataGridViewTextBoxColumn";
+            this.endSchoolDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // gPADataGridViewTextBoxColumn
             // 
             this.gPADataGridViewTextBoxColumn.DataPropertyName = "GPA";
             this.gPADataGridViewTextBoxColumn.HeaderText = "GPA";
             this.gPADataGridViewTextBoxColumn.Name = "gPADataGridViewTextBoxColumn";
+            this.gPADataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // numberGroupDataGridViewTextBoxColumn
             // 
             this.numberGroupDataGridViewTextBoxColumn.DataPropertyName = "NumberGroup";
             this.numberGroupDataGridViewTextBoxColumn.HeaderText = "NumberGroup";
             this.numberGroupDataGridViewTextBoxColumn.Name = "numberGroupDataGridViewTextBoxColumn";
+            this.numberGroupDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // studentsBindingSource
             // 
@@ -250,6 +259,21 @@
             // studentsTableAdapter
             // 
             this.studentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // Edit_Student
+            // 
+            this.Edit_Student.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Edit_Student.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Edit_Student.BackgroundImage")));
+            this.Edit_Student.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Edit_Student.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Edit_Student.Image = ((System.Drawing.Image)(resources.GetObject("Edit_Student.Image")));
+            this.Edit_Student.Location = new System.Drawing.Point(596, 528);
+            this.Edit_Student.Name = "Edit_Student";
+            this.Edit_Student.Size = new System.Drawing.Size(348, 32);
+            this.Edit_Student.TabIndex = 8;
+            this.Edit_Student.Text = "Редактировать выбраного абитурента";
+            this.Edit_Student.UseVisualStyleBackColor = false;
+            this.Edit_Student.Click += new System.EventHandler(this.Edit_Student_Click);
             // 
             // Delete_Student
             // 
@@ -266,20 +290,20 @@
             this.Delete_Student.UseVisualStyleBackColor = false;
             this.Delete_Student.Click += new System.EventHandler(this.Delete_Student_Click);
             // 
-            // Edit_Student
+            // button1
             // 
-            this.Edit_Student.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Edit_Student.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Edit_Student.BackgroundImage")));
-            this.Edit_Student.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Edit_Student.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Edit_Student.Image = ((System.Drawing.Image)(resources.GetObject("Edit_Student.Image")));
-            this.Edit_Student.Location = new System.Drawing.Point(596, 528);
-            this.Edit_Student.Name = "Edit_Student";
-            this.Edit_Student.Size = new System.Drawing.Size(348, 32);
-            this.Edit_Student.TabIndex = 8;
-            this.Edit_Student.Text = "Редактировать выбраного абитурента";
-            this.Edit_Student.UseVisualStyleBackColor = false;
-            this.Edit_Student.Click += new System.EventHandler(this.Edit_Student_Click);
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(993, 528);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(316, 32);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Удалить студентов с низким СРБ";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // DataBase
             // 

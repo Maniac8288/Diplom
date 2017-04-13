@@ -44,7 +44,6 @@
             this.Social = new System.Windows.Forms.Label();
             this.Language = new System.Windows.Forms.Label();
             this.ComboLanguage = new System.Windows.Forms.ComboBox();
-            this.AddCitizenship = new System.Windows.Forms.TextBox();
             this.Citizenship = new System.Windows.Forms.Label();
             this.AddForeignLanguage = new System.Windows.Forms.TextBox();
             this.ForeignLanguage = new System.Windows.Forms.Label();
@@ -71,6 +70,8 @@
             this.GPA = new System.Windows.Forms.Label();
             this.AddStudentBD = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.AddPhonePareant = new System.Windows.Forms.TextBox();
+            this.PhonePareant = new System.Windows.Forms.Label();
             this.NubmerGroupChouse = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.NumberGroup = new System.Windows.Forms.Label();
@@ -90,8 +91,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.Exit = new System.Windows.Forms.Button();
-            this.AddPhonePareant = new System.Windows.Forms.TextBox();
-            this.PhonePareant = new System.Windows.Forms.Label();
+            this.AddCitizenship = new System.Windows.Forms.ComboBox();
             this.InfoSchool.SuspendLayout();
             this.Atest.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -238,13 +238,6 @@
             this.ComboLanguage.Size = new System.Drawing.Size(121, 26);
             this.ComboLanguage.TabIndex = 15;
             this.ComboLanguage.Text = "Русский";
-            // 
-            // AddCitizenship
-            // 
-            this.AddCitizenship.Location = new System.Drawing.Point(23, 205);
-            this.AddCitizenship.Name = "AddCitizenship";
-            this.AddCitizenship.Size = new System.Drawing.Size(170, 24);
-            this.AddCitizenship.TabIndex = 17;
             // 
             // Citizenship
             // 
@@ -501,6 +494,7 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBox1.Controls.Add(this.AddCitizenship);
             this.groupBox1.Controls.Add(this.AddPhonePareant);
             this.groupBox1.Controls.Add(this.PhonePareant);
             this.groupBox1.Controls.Add(this.NubmerGroupChouse);
@@ -530,7 +524,6 @@
             this.groupBox1.Controls.Add(this.House);
             this.groupBox1.Controls.Add(this.AddForeignLanguage);
             this.groupBox1.Controls.Add(this.ForeignLanguage);
-            this.groupBox1.Controls.Add(this.AddCitizenship);
             this.groupBox1.Controls.Add(this.Citizenship);
             this.groupBox1.Controls.Add(this.ComboLanguage);
             this.groupBox1.Controls.Add(this.Language);
@@ -555,6 +548,23 @@
             this.groupBox1.TabIndex = 40;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Информация об абитуриенте";
+            // 
+            // AddPhonePareant
+            // 
+            this.AddPhonePareant.Location = new System.Drawing.Point(734, 292);
+            this.AddPhonePareant.Name = "AddPhonePareant";
+            this.AddPhonePareant.Size = new System.Drawing.Size(149, 24);
+            this.AddPhonePareant.TabIndex = 59;
+            // 
+            // PhonePareant
+            // 
+            this.PhonePareant.AutoSize = true;
+            this.PhonePareant.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PhonePareant.Location = new System.Drawing.Point(722, 251);
+            this.PhonePareant.Name = "PhonePareant";
+            this.PhonePareant.Size = new System.Drawing.Size(167, 18);
+            this.PhonePareant.TabIndex = 58;
+            this.PhonePareant.Text = "Телефон родителей";
             // 
             // NubmerGroupChouse
             // 
@@ -773,22 +783,21 @@
             this.Exit.UseVisualStyleBackColor = false;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
-            // AddPhonePareant
+            // AddCitizenship
             // 
-            this.AddPhonePareant.Location = new System.Drawing.Point(734, 292);
-            this.AddPhonePareant.Name = "AddPhonePareant";
-            this.AddPhonePareant.Size = new System.Drawing.Size(149, 24);
-            this.AddPhonePareant.TabIndex = 59;
-            // 
-            // PhonePareant
-            // 
-            this.PhonePareant.AutoSize = true;
-            this.PhonePareant.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PhonePareant.Location = new System.Drawing.Point(722, 251);
-            this.PhonePareant.Name = "PhonePareant";
-            this.PhonePareant.Size = new System.Drawing.Size(167, 18);
-            this.PhonePareant.TabIndex = 58;
-            this.PhonePareant.Text = "Телефон родителей";
+            this.AddCitizenship.FormattingEnabled = true;
+            this.AddCitizenship.Items.AddRange(new object[] {
+            "ПМР",
+            "Молдова",
+            "Украина",
+            "Гагаузия",
+            "Болгария",
+            "Россия"});
+            this.AddCitizenship.Location = new System.Drawing.Point(23, 205);
+            this.AddCitizenship.Name = "AddCitizenship";
+            this.AddCitizenship.Size = new System.Drawing.Size(170, 26);
+            this.AddCitizenship.TabIndex = 60;
+            this.AddCitizenship.Text = "ПМР";
             // 
             // AddStudent
             // 
@@ -840,7 +849,6 @@
         private System.Windows.Forms.Label Social;
         private System.Windows.Forms.Label Language;
         private System.Windows.Forms.ComboBox ComboLanguage;
-        private System.Windows.Forms.TextBox AddCitizenship;
         private System.Windows.Forms.Label Citizenship;
         private System.Windows.Forms.TextBox AddForeignLanguage;
         private System.Windows.Forms.Label ForeignLanguage;
@@ -888,5 +896,6 @@
         private System.Windows.Forms.ComboBox NubmerGroupChouse;
         private System.Windows.Forms.TextBox AddPhonePareant;
         private System.Windows.Forms.Label PhonePareant;
+        private System.Windows.Forms.ComboBox AddCitizenship;
     }
 }

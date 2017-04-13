@@ -21,6 +21,7 @@ namespace Diplom
         AddStudent addStudent;
         DataBase dataBase;
         Main main;
+        Groups groups;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -74,6 +75,12 @@ namespace Diplom
         private void Exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Groups_Click(object sender, EventArgs e)
+        {
+            groups = new Groups();
+            groups.Show();
         }
     }
    }

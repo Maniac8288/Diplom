@@ -1,4 +1,4 @@
-    namespace Diplom.Migrations
+namespace Diplom.Migrations
 {
     using System;
     using System.Data.Entity;

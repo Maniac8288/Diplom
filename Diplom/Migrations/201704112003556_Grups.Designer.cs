@@ -7,13 +7,13 @@ namespace Diplom.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class PhonePareant : IMigrationMetadata
+    public sealed partial class Grups : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PhonePareant));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Grups));
         
         string IMigrationMetadata.Id
         {
-            get { return "201704091438103_PhonePareant"; }
+            get { return "201704112003556_Grups"; }
         }
         
         string IMigrationMetadata.Source
