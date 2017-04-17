@@ -46,13 +46,20 @@ namespace Diplom.Models
         /// </summary>
         /// <param name="key">Код группы</param>
         /// <param name="count">Новое количество</param>
-        public void EditBudgetSeats(string key, int count)
+        public string EditBudgetSeats(string key, int count)
         {
             using (DataContext db = new DataContext())
             {
                 var group = db.Groups.FirstOrDefault(x => x.key == key);
                 group.CountBudget = count;
-                db.SaveChanges();
+                if (group.CountSeats < group.CountBudget)
+                {
+                    return "";
+                }
+                else {
+                    db.SaveChanges();
+                    return "Успешно обновлено";
+                }
             }
         }
         /// <summary>
@@ -60,14 +67,100 @@ namespace Diplom.Models
         /// </summary>
         /// <param name="key">Код группы</param>
         /// <param name="count">Новое количество</param>
-        public void EditQuotaSeats(string key, int count)
+        public string EditQuotaSeats(string key, int count)
         {
             using (DataContext db = new DataContext())
             {
                 var group = db.Groups.FirstOrDefault(x => x.key == key);
                 group.Quota = count;
-                db.SaveChanges();
+                if (group.CountBudget < group.Quota)
+                {
+                    return "";
+                }
+                else
+                {
+                    db.SaveChanges();
+                    return "Успешно обновлено";
+                }
             }
         }
+
+        #region Статистика        
+        /// <summary>
+        /// Подсчитывает количество мест в учебном заведение
+        /// </summary>
+        /// <returns></returns>
+        public int CountSeatAll()
+        {
+            int Count = 0;
+            using (DataContext db = new DataContext())
+            {
+                foreach(var group in db.Groups)
+                {
+                    Count += group.CountSeats;
+                }
+            }
+            return Count;
+        }
+        /// <summary>
+        /// Подсчитывает количество бюджетных мест
+        /// </summary>
+        /// <returns></returns>
+        public int CountBudgetAll()
+        {
+            int Count = 0;
+            using (DataContext db = new DataContext())
+            {
+                foreach (var group in db.Groups)
+                {
+                    Count += group.CountBudget;
+                }
+            }
+            return Count;
+        }
+        /// <summary>
+        /// Подсчитывает количество оставшихся мест
+        /// </summary>
+        /// <returns></returns>
+        public int CountSeat()
+        {
+            int Count = 0;
+            using (DataContext db = new DataContext())
+            {
+                var Groups = db.Groups.ToList();
+                foreach (var group in Groups)
+                {
+                    var NumberGroup = group.Id;
+                    var Group = db.SdudentsRecevieds.Where(x => x.NumberGroup == NumberGroup.ToString()).ToList();
+                
+                   
+                    Count +=group.CountSeats-Group.Count() ;
+                }
+            }
+            return Count;
+        }
+        /// <summary>
+        /// Подсчитывает количество оставшихся бюджетных мест
+        /// </summary>
+        /// <returns></returns>
+        public int CountBudget()
+        {
+            int Count = 0;
+            using (DataContext db = new DataContext())
+            {
+                var Groups = db.Groups.ToList();
+                foreach (var group in Groups)
+                {
+                    var NumberGroup = group.Id;
+                    var Group = db.SdudentsRecevieds.Where(x => x.NumberGroup == NumberGroup.ToString()).ToList();
+                    var GroupBudget = Group.Where(x => x.Contract == "Бюджет").ToList();
+                    Count +=  group.CountBudget- GroupBudget.Count();
+                }
+            }
+            return Count;
+        }
+        #endregion Статистика
+
+
     }
 }

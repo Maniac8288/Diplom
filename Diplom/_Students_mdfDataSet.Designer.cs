@@ -321,6 +321,10 @@ namespace Diplom {
             
             private global::System.Data.DataColumn columnNumberGroup;
             
+            private global::System.Data.DataColumn columnEstimates;
+            
+            private global::System.Data.DataColumn columnPhonePareant;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StudentsDataTable() {
@@ -524,6 +528,22 @@ namespace Diplom {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EstimatesColumn {
+                get {
+                    return this.columnEstimates;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PhonePareantColumn {
+                get {
+                    return this.columnPhonePareant;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -579,7 +599,9 @@ namespace Diplom {
                         string School, 
                         System.DateTime EndSchool, 
                         double GPA, 
-                        string NumberGroup) {
+                        string NumberGroup, 
+                        string Estimates, 
+                        string PhonePareant) {
                 StudentsRow rowStudentsRow = ((StudentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -602,7 +624,9 @@ namespace Diplom {
                         School,
                         EndSchool,
                         GPA,
-                        NumberGroup};
+                        NumberGroup,
+                        Estimates,
+                        PhonePareant};
                 rowStudentsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStudentsRow);
                 return rowStudentsRow;
@@ -653,6 +677,8 @@ namespace Diplom {
                 this.columnEndSchool = base.Columns["EndSchool"];
                 this.columnGPA = base.Columns["GPA"];
                 this.columnNumberGroup = base.Columns["NumberGroup"];
+                this.columnEstimates = base.Columns["Estimates"];
+                this.columnPhonePareant = base.Columns["PhonePareant"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -700,6 +726,10 @@ namespace Diplom {
                 base.Columns.Add(this.columnGPA);
                 this.columnNumberGroup = new global::System.Data.DataColumn("NumberGroup", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNumberGroup);
+                this.columnEstimates = new global::System.Data.DataColumn("Estimates", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstimates);
+                this.columnPhonePareant = new global::System.Data.DataColumn("PhonePareant", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPhonePareant);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -728,6 +758,8 @@ namespace Diplom {
                 this.columnEndSchool.AllowDBNull = false;
                 this.columnGPA.AllowDBNull = false;
                 this.columnNumberGroup.MaxLength = 2147483647;
+                this.columnEstimates.MaxLength = 2147483647;
+                this.columnPhonePareant.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1181,6 +1213,38 @@ namespace Diplom {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Estimates {
+                get {
+                    try {
+                        return ((string)(this[this.tableStudents.EstimatesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Estimates\' в таблице \'Students\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStudents.EstimatesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PhonePareant {
+                get {
+                    try {
+                        return ((string)(this[this.tableStudents.PhonePareantColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'PhonePareant\' в таблице \'Students\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStudents.PhonePareantColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsSurNameNull() {
                 return this.IsNull(this.tableStudents.SurNameColumn);
             }
@@ -1370,6 +1434,30 @@ namespace Diplom {
             public void SetNumberGroupNull() {
                 this[this.tableStudents.NumberGroupColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEstimatesNull() {
+                return this.IsNull(this.tableStudents.EstimatesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEstimatesNull() {
+                this[this.tableStudents.EstimatesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPhonePareantNull() {
+                return this.IsNull(this.tableStudents.PhonePareantColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPhonePareantNull() {
+                this[this.tableStudents.PhonePareantColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1552,6 +1640,8 @@ namespace Diplom._Students_mdfDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("EndSchool", "EndSchool");
             tableMapping.ColumnMappings.Add("GPA", "GPA");
             tableMapping.ColumnMappings.Add("NumberGroup", "NumberGroup");
+            tableMapping.ColumnMappings.Add("Estimates", "Estimates");
+            tableMapping.ColumnMappings.Add("PhonePareant", "PhonePareant");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -1566,8 +1656,8 @@ namespace Diplom._Students_mdfDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GPA", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GPA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Students] ([SurName], [NameStudent], [SecondName], [Nationality], [DateBirth], [DateDocument], [Social], [Language], [Citizenship], [ForeignLanguage], [Phone], [MilitaryID], [House], [Sex], [Dormitories], [Documents], [School], [EndSchool], [GPA], [NumberGroup]) VALUES (@SurName, @NameStudent, @SecondName, @Nationality, @DateBirth, @DateDocument, @Social, @Language, @Citizenship, @ForeignLanguage, @Phone, @MilitaryID, @House, @Sex, @Dormitories, @Documents, @School, @EndSchool, @GPA, @NumberGroup);
-SELECT ID, SurName, NameStudent, SecondName, Nationality, DateBirth, DateDocument, Social, Language, Citizenship, ForeignLanguage, Phone, MilitaryID, House, Sex, Dormitories, Documents, School, EndSchool, GPA, NumberGroup FROM Students WHERE (ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Students] ([SurName], [NameStudent], [SecondName], [Nationality], [DateBirth], [DateDocument], [Social], [Language], [Citizenship], [ForeignLanguage], [Phone], [MilitaryID], [House], [Sex], [Dormitories], [Documents], [School], [EndSchool], [GPA], [NumberGroup], [Estimates], [PhonePareant]) VALUES (@SurName, @NameStudent, @SecondName, @Nationality, @DateBirth, @DateDocument, @Social, @Language, @Citizenship, @ForeignLanguage, @Phone, @MilitaryID, @House, @Sex, @Dormitories, @Documents, @School, @EndSchool, @GPA, @NumberGroup, @Estimates, @PhonePareant);
+SELECT ID, SurName, NameStudent, SecondName, Nationality, DateBirth, DateDocument, Social, Language, Citizenship, ForeignLanguage, Phone, MilitaryID, House, Sex, Dormitories, Documents, School, EndSchool, GPA, NumberGroup, Estimates, PhonePareant FROM Students WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SurName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SurName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NameStudent", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameStudent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1589,10 +1679,12 @@ SELECT ID, SurName, NameStudent, SecondName, Nationality, DateBirth, DateDocumen
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndSchool", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndSchool", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GPA", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GPA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberGroup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estimates", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estimates", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PhonePareant", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhonePareant", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Students] SET [SurName] = @SurName, [NameStudent] = @NameStudent, [SecondName] = @SecondName, [Nationality] = @Nationality, [DateBirth] = @DateBirth, [DateDocument] = @DateDocument, [Social] = @Social, [Language] = @Language, [Citizenship] = @Citizenship, [ForeignLanguage] = @ForeignLanguage, [Phone] = @Phone, [MilitaryID] = @MilitaryID, [House] = @House, [Sex] = @Sex, [Dormitories] = @Dormitories, [Documents] = @Documents, [School] = @School, [EndSchool] = @EndSchool, [GPA] = @GPA, [NumberGroup] = @NumberGroup WHERE (([ID] = @Original_ID) AND ([DateBirth] = @Original_DateBirth) AND ([DateDocument] = @Original_DateDocument) AND ([EndSchool] = @Original_EndSchool) AND ([GPA] = @Original_GPA));
-SELECT ID, SurName, NameStudent, SecondName, Nationality, DateBirth, DateDocument, Social, Language, Citizenship, ForeignLanguage, Phone, MilitaryID, House, Sex, Dormitories, Documents, School, EndSchool, GPA, NumberGroup FROM Students WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Students] SET [SurName] = @SurName, [NameStudent] = @NameStudent, [SecondName] = @SecondName, [Nationality] = @Nationality, [DateBirth] = @DateBirth, [DateDocument] = @DateDocument, [Social] = @Social, [Language] = @Language, [Citizenship] = @Citizenship, [ForeignLanguage] = @ForeignLanguage, [Phone] = @Phone, [MilitaryID] = @MilitaryID, [House] = @House, [Sex] = @Sex, [Dormitories] = @Dormitories, [Documents] = @Documents, [School] = @School, [EndSchool] = @EndSchool, [GPA] = @GPA, [NumberGroup] = @NumberGroup, [Estimates] = @Estimates, [PhonePareant] = @PhonePareant WHERE (([ID] = @Original_ID) AND ([DateBirth] = @Original_DateBirth) AND ([DateDocument] = @Original_DateDocument) AND ([EndSchool] = @Original_EndSchool) AND ([GPA] = @Original_GPA));
+SELECT ID, SurName, NameStudent, SecondName, Nationality, DateBirth, DateDocument, Social, Language, Citizenship, ForeignLanguage, Phone, MilitaryID, House, Sex, Dormitories, Documents, School, EndSchool, GPA, NumberGroup, Estimates, PhonePareant FROM Students WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SurName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SurName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NameStudent", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameStudent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1614,6 +1706,8 @@ SELECT ID, SurName, NameStudent, SecondName, Nationality, DateBirth, DateDocumen
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndSchool", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndSchool", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GPA", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GPA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberGroup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estimates", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estimates", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PhonePareant", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhonePareant", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateBirth", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateBirth", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateDocument", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateDocument", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1635,9 +1729,7 @@ SELECT ID, SurName, NameStudent, SecondName, Nationality, DateBirth, DateDocumen
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, SurName, NameStudent, SecondName, Nationality, DateBirth, DateDocument" +
-                ", Social, Language, Citizenship, ForeignLanguage, Phone, MilitaryID, House, Sex," +
-                " Dormitories, Documents, School, EndSchool, GPA, NumberGroup FROM dbo.Students";
+            this._commandCollection[0].CommandText = @"SELECT ID, SurName, NameStudent, SecondName, Nationality, DateBirth, DateDocument, Social, Language, Citizenship, ForeignLanguage, Phone, MilitaryID, House, Sex, Dormitories, Documents, School, EndSchool, GPA, NumberGroup, Estimates, PhonePareant FROM dbo.Students";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1744,7 +1836,9 @@ SELECT ID, SurName, NameStudent, SecondName, Nationality, DateBirth, DateDocumen
                     string School, 
                     System.DateTime EndSchool, 
                     double GPA, 
-                    string NumberGroup) {
+                    string NumberGroup, 
+                    string Estimates, 
+                    string PhonePareant) {
             if ((SurName == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1845,6 +1939,18 @@ SELECT ID, SurName, NameStudent, SecondName, Nationality, DateBirth, DateDocumen
             else {
                 this.Adapter.InsertCommand.Parameters[19].Value = ((string)(NumberGroup));
             }
+            if ((Estimates == null)) {
+                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((string)(Estimates));
+            }
+            if ((PhonePareant == null)) {
+                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[21].Value = ((string)(PhonePareant));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1886,6 +1992,8 @@ SELECT ID, SurName, NameStudent, SecondName, Nationality, DateBirth, DateDocumen
                     System.DateTime EndSchool, 
                     double GPA, 
                     string NumberGroup, 
+                    string Estimates, 
+                    string PhonePareant, 
                     int Original_ID, 
                     System.DateTime Original_DateBirth, 
                     System.DateTime Original_DateDocument, 
@@ -1992,12 +2100,24 @@ SELECT ID, SurName, NameStudent, SecondName, Nationality, DateBirth, DateDocumen
             else {
                 this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(NumberGroup));
             }
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_ID));
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(Original_DateBirth));
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_DateDocument));
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_EndSchool));
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((double)(Original_GPA));
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(ID));
+            if ((Estimates == null)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Estimates));
+            }
+            if ((PhonePareant == null)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(PhonePareant));
+            }
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_ID));
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_DateBirth));
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(Original_DateDocument));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(Original_EndSchool));
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((double)(Original_GPA));
+            this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2039,12 +2159,14 @@ SELECT ID, SurName, NameStudent, SecondName, Nationality, DateBirth, DateDocumen
                     System.DateTime EndSchool, 
                     double GPA, 
                     string NumberGroup, 
+                    string Estimates, 
+                    string PhonePareant, 
                     int Original_ID, 
                     System.DateTime Original_DateBirth, 
                     System.DateTime Original_DateDocument, 
                     System.DateTime Original_EndSchool, 
                     double Original_GPA) {
-            return this.Update(SurName, NameStudent, SecondName, Nationality, DateBirth, DateDocument, Social, Language, Citizenship, ForeignLanguage, Phone, MilitaryID, House, Sex, Dormitories, Documents, School, EndSchool, GPA, NumberGroup, Original_ID, Original_DateBirth, Original_DateDocument, Original_EndSchool, Original_GPA, Original_ID);
+            return this.Update(SurName, NameStudent, SecondName, Nationality, DateBirth, DateDocument, Social, Language, Citizenship, ForeignLanguage, Phone, MilitaryID, House, Sex, Dormitories, Documents, School, EndSchool, GPA, NumberGroup, Estimates, PhonePareant, Original_ID, Original_DateBirth, Original_DateDocument, Original_EndSchool, Original_GPA, Original_ID);
         }
     }
     

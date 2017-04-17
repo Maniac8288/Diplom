@@ -82,44 +82,66 @@ namespace Diplom
                 return student;
             }
         }
-
+        /// <summary>
+        /// Заполняет группы абитуриаентами
+        /// </summary>
         public void DeleteExcess()
         {
+            //Подключение к базе данных
             using (DataContext db = new DataContext())
-            {
+            {   
+               // Удаление всех студентов (если они есть) из поступивших
                 db.SdudentsRecevieds.RemoveRange(db.SdudentsRecevieds);
                 db.SaveChanges();
                 for (int i = 111; i <= 114; i++)
                 {
-                    var NumberGroup = db.Groups.FirstOrDefault(x => x.Id == i);
+                    //Группа в которую поступает абитуриент
+                    var Group = db.Groups.FirstOrDefault(x => x.Id == i);
+
+                    // Конверт модели из базы данных в модель с поступившими студентами
                     var ModelStudentReceived = db.Students.Select(ConvertStudent());
-                    var group = ModelStudentReceived.Where(x => x.NumberGroup == i.ToString()).ToList();
-                    var social = group.Where(x => x.Social != "").Take(NumberGroup.CountBudget).OrderByDescending(x => x.GPA).ToList();
+
+                    // Создание массива заполнеными студентами - контрактниками 
+                    var Contract = ModelStudentReceived.Where(x => x.NumberGroup == i.ToString()).ToList();
+
+                    // Создание массива заполнеными студентами отсортироваными по Среднему балу  - Имеющие социальное положение 
+                    //(Массив имеет ограничение в размере равному количеству бюджетных мест в группе)
+                    var social = Contract.Where(x => x.Social != "").OrderByDescending(x => x.GPA).Take(Group.CountBudget).ToList();
+
+                    // Удаление из массива контракников всех студентов имеющих социальное положение 
                     foreach (var sociealItem in social)
                     {
-                        group.Remove(sociealItem);
+                        Contract.Remove(sociealItem);
                     }
-                    var newGroupBudget = group.OrderByDescending(x => x.GPA).Take(NumberGroup.CountBudget - social.Count()).ToList();
-                    var NewGroupBudgetGaguz = newGroupBudget.Where(x => x.Citizenship != "ПМР");
-                    NewGroupBudgetGaguz.OrderByDescending(x=>x.GPA).Take(NumberGroup.Quota)
-                  
-                    var Quota = NumberGroup.Quota;
-                    for (int p = 0; p <= NewGroupBudgetCopy; p++)
+                    // Создание массива иностранцев отсортированных по среднему балу
+                    var Foreign = Contract.OrderByDescending(x => x.GPA).Where(x => x.Citizenship != "ПМР").ToList();
+
+                    // Удаление иностранцев с массива контракников 
+                    foreach (var ForeginItem in Foreign)
                     {
-                        if (newGroupBudget[p].Citizenship != "ПМР" && Quota == 0)
-                        {
-                            newGroupBudget.Remove(newGroupBudget[p]);
-
-                            Quota--;
-
-                        }
-                        else
-                        {
-                            group.Remove(newGroupBudget[p]);
-                        }
+                        Contract.Remove(ForeginItem);
                     }
-                  
-                    var newGroupContract = group.OrderByDescending(x => x.GPA).Take(NumberGroup.CountSeats - NumberGroup.CountBudget).ToList();
+                    // Создание масива студентов из ПМР
+                    var PMR = Contract.Where(x => x.Citizenship == "ПМР").ToList();
+
+                    // Добавление в массив "ПМР" студентов иностранцев с ограничением в квотные места
+                    PMR.AddRange(Foreign.Take(Group.Quota));
+
+                    // Добавление в массив контрактников пропустив квотные места
+                    Contract.AddRange(Foreign.Skip(Group.Quota));
+
+                    // Создание массива бюджетников на основе массива ПМР отсортированых по среднему балу и имеет ограничение в Бюджетные места - Массив с социальными положениями
+                    var Budget = PMR.OrderByDescending(x => x.GPA).Take(Group.CountBudget - social.Count()).ToList();
+
+                    // Удаление из массива контракников всех бюджетников         
+                    foreach(var BudgetItem in Budget)
+                    {
+                        Contract.Remove(BudgetItem);
+                    }
+                    // Создание массива контракников отсортированных по среднему баллу с ограничеем "Всего мест-Бюджетные места"
+                    var newGroupContract = Contract.OrderByDescending(x => x.GPA).Take(Group.CountSeats - Group.CountBudget).ToList();
+
+                    // Добавление студентов в базу данных имеющие социальное положение 
                     foreach (var student in social)
                     {
                         var studentReceived = new StudentReceived()
@@ -153,7 +175,8 @@ namespace Diplom
                         db.SdudentsRecevieds.Add(studentReceived);
                         db.SaveChanges();
                     }
-                    foreach (var student in newGroupBudget)
+                    // Добавление студентов в базу даных бюджетников 
+                    foreach (var student in Budget)
                     {
                         var studentReceived = new StudentReceived()
                         {
@@ -187,6 +210,7 @@ namespace Diplom
                         db.SaveChanges();
 
                     }
+                    // Добавление в базу даных контракников
                     foreach (var student in newGroupContract)
                     {
                         var studentReceived = new StudentReceived()

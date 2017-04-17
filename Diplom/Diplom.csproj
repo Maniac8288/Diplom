@@ -59,42 +59,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddStudent.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Main\AddStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddStudent.Designer.cs">
+    <Compile Include="View\Main\AddStudent.Designer.cs">
       <DependentUpon>AddStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChouseGroupAndSeats.cs">
+    <Compile Include="View\Groups\ChouseGroupAndSeats.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChouseGroupAndSeats.Designer.cs">
+    <Compile Include="View\Groups\ChouseGroupAndSeats.Designer.cs">
       <DependentUpon>ChouseGroupAndSeats.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DataBase.Designer.cs">
-      <DependentUpon>DataBase.cs</DependentUpon>
     </Compile>
     <Compile Include="DataModel\DataContext.cs" />
     <Compile Include="DataModel\Group.cs" />
-    <Compile Include="EditStudent.cs">
+    <Compile Include="View\Main\DataBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditStudent.Designer.cs">
+    <Compile Include="View\Main\DataBase.Designer.cs">
+      <DependentUpon>DataBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Main\EditStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Main\EditStudent.Designer.cs">
       <DependentUpon>EditStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="View\Main\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="View\Main\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Groups.cs">
+    <Compile Include="View\Groups\Groups.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Groups.Designer.cs">
+    <Compile Include="View\Groups\Groups.Designer.cs">
       <DependentUpon>Groups.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201704111957145_first.cs" />
@@ -118,21 +123,11 @@
     <Compile Include="Models\ModelStudentReceived.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Recevied.cs">
+    <Compile Include="View\Groups\Recevied.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recevied.Designer.cs">
+    <Compile Include="View\Groups\Recevied.Designer.cs">
       <DependentUpon>Recevied.cs</DependentUpon>
-    </Compile>
-    <Compile Include="StudentDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StudentDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataModel\StudentReceived.cs" />
     <Compile Include="DataModel\Student.cs" />
@@ -142,37 +137,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_Students_mdfDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="_Students_mdfDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_Students_mdfDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="_Students_mdfDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_Students_mdfDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="_Students_mdfDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_Students_mdfDataSet3.xsd</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="AddStudent.resx">
+    <EmbeddedResource Include="View\Main\AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChouseGroupAndSeats.resx">
+    <EmbeddedResource Include="View\Groups\ChouseGroupAndSeats.resx">
       <DependentUpon>ChouseGroupAndSeats.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataBase.resx">
+    <EmbeddedResource Include="View\Main\DataBase.resx">
       <DependentUpon>DataBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditStudent.resx">
+    <EmbeddedResource Include="View\Main\EditStudent.resx">
       <DependentUpon>EditStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="View\Main\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Groups.resx">
+    <EmbeddedResource Include="View\Groups\Groups.resx">
       <DependentUpon>Groups.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704111957145_first.resx">
@@ -192,7 +172,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recevied.resx">
+    <EmbeddedResource Include="View\Groups\Recevied.resx">
       <DependentUpon>Recevied.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -205,17 +185,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="StudentDataSet.xsc">
-      <DependentUpon>StudentDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="StudentDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>StudentDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="StudentDataSet.xss">
-      <DependentUpon>StudentDataSet.xsd</DependentUpon>
-    </None>
     <None Include="_Students_mdfDataSet.xsc">
       <DependentUpon>_Students_mdfDataSet.xsd</DependentUpon>
     </None>
@@ -227,39 +196,6 @@
     <None Include="_Students_mdfDataSet.xss">
       <DependentUpon>_Students_mdfDataSet.xsd</DependentUpon>
     </None>
-    <None Include="_Students_mdfDataSet1.xsc">
-      <DependentUpon>_Students_mdfDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="_Students_mdfDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_Students_mdfDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_Students_mdfDataSet1.xss">
-      <DependentUpon>_Students_mdfDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="_Students_mdfDataSet2.xsc">
-      <DependentUpon>_Students_mdfDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="_Students_mdfDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_Students_mdfDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_Students_mdfDataSet2.xss">
-      <DependentUpon>_Students_mdfDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="_Students_mdfDataSet3.xsc">
-      <DependentUpon>_Students_mdfDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="_Students_mdfDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_Students_mdfDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_Students_mdfDataSet3.xss">
-      <DependentUpon>_Students_mdfDataSet3.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -267,16 +203,40 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Download-Free-Crumpled-White-Paper-Texture.jpg" />
+    <None Include="Resources\background.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\501bb6921bed71371e7253740c715d2e.jpg" />
+    <None Include="Resources\Add.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\434683-light-metal-background.jpg" />
+    <None Include="Resources\Book_angleHS.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\depositphotos_33130249-stock-illustration-white-texture-seamless-background-vector.jpg" />
+    <None Include="Resources\build.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Books.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewDocumentHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveHS.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
