@@ -62,6 +62,11 @@
             this.AcceptChouse = new System.Windows.Forms.Button();
             this.ListGroups = new System.Windows.Forms.ComboBox();
             this.Surname = new System.Windows.Forms.Label();
+            this.LabelTeacher = new System.Windows.Forms.Label();
+            this.EditTeacher = new System.Windows.Forms.Button();
+            this.AcceptTeacher = new System.Windows.Forms.Button();
+            this.ActionTeacher = new System.Windows.Forms.TextBox();
+            this.labelEditTeacher = new System.Windows.Forms.Label();
             this.Statistic.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -86,7 +91,7 @@
             this.Statistic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Statistic.Location = new System.Drawing.Point(12, 32);
             this.Statistic.Name = "Statistic";
-            this.Statistic.Size = new System.Drawing.Size(444, 499);
+            this.Statistic.Size = new System.Drawing.Size(444, 544);
             this.Statistic.TabIndex = 64;
             this.Statistic.TabStop = false;
             this.Statistic.Text = "Статистика";
@@ -97,7 +102,7 @@
             this.Budget.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Budget.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Budget.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Budget.Location = new System.Drawing.Point(394, 303);
+            this.Budget.Location = new System.Drawing.Point(394, 346);
             this.Budget.Name = "Budget";
             this.Budget.Size = new System.Drawing.Size(0, 21);
             this.Budget.TabIndex = 70;
@@ -108,7 +113,7 @@
             this.Seat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Seat.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Seat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Seat.Location = new System.Drawing.Point(394, 218);
+            this.Seat.Location = new System.Drawing.Point(394, 253);
             this.Seat.Name = "Seat";
             this.Seat.Size = new System.Drawing.Size(0, 21);
             this.Seat.TabIndex = 69;
@@ -119,7 +124,7 @@
             this.BudgetAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BudgetAll.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BudgetAll.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BudgetAll.Location = new System.Drawing.Point(394, 141);
+            this.BudgetAll.Location = new System.Drawing.Point(394, 174);
             this.BudgetAll.Name = "BudgetAll";
             this.BudgetAll.Size = new System.Drawing.Size(0, 21);
             this.BudgetAll.TabIndex = 68;
@@ -130,7 +135,7 @@
             this.SeatAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SeatAll.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SeatAll.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.SeatAll.Location = new System.Drawing.Point(394, 67);
+            this.SeatAll.Location = new System.Drawing.Point(394, 71);
             this.SeatAll.Name = "SeatAll";
             this.SeatAll.Size = new System.Drawing.Size(0, 21);
             this.SeatAll.TabIndex = 67;
@@ -144,7 +149,7 @@
             this.Update.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange;
             this.Update.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
             this.Update.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Update.Location = new System.Drawing.Point(295, 436);
+            this.Update.Location = new System.Drawing.Point(295, 448);
             this.Update.Name = "Update";
             this.Update.Size = new System.Drawing.Size(143, 32);
             this.Update.TabIndex = 65;
@@ -158,7 +163,7 @@
             this.CountBudget.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CountBudget.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CountBudget.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.CountBudget.Location = new System.Drawing.Point(0, 304);
+            this.CountBudget.Location = new System.Drawing.Point(0, 346);
             this.CountBudget.Name = "CountBudget";
             this.CountBudget.Size = new System.Drawing.Size(210, 21);
             this.CountBudget.TabIndex = 3;
@@ -170,7 +175,7 @@
             this.СountSeat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.СountSeat.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.СountSeat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.СountSeat.Location = new System.Drawing.Point(6, 218);
+            this.СountSeat.Location = new System.Drawing.Point(6, 253);
             this.СountSeat.Name = "СountSeat";
             this.СountSeat.Size = new System.Drawing.Size(119, 21);
             this.СountSeat.TabIndex = 2;
@@ -182,7 +187,7 @@
             this.CountBudgetAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CountBudgetAll.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CountBudgetAll.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.CountBudgetAll.Location = new System.Drawing.Point(6, 141);
+            this.CountBudgetAll.Location = new System.Drawing.Point(6, 174);
             this.CountBudgetAll.Name = "CountBudgetAll";
             this.CountBudgetAll.Size = new System.Drawing.Size(276, 21);
             this.CountBudgetAll.TabIndex = 1;
@@ -194,7 +199,7 @@
             this.CountSeatAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CountSeatAll.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CountSeatAll.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.CountSeatAll.Location = new System.Drawing.Point(6, 67);
+            this.CountSeatAll.Location = new System.Drawing.Point(6, 71);
             this.CountSeatAll.Name = "CountSeatAll";
             this.CountSeatAll.Size = new System.Drawing.Size(188, 21);
             this.CountSeatAll.TabIndex = 0;
@@ -247,6 +252,11 @@
             this.groupBox1.AccessibleDescription = "";
             this.groupBox1.AutoSize = true;
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.AcceptTeacher);
+            this.groupBox1.Controls.Add(this.ActionTeacher);
+            this.groupBox1.Controls.Add(this.labelEditTeacher);
+            this.groupBox1.Controls.Add(this.EditTeacher);
+            this.groupBox1.Controls.Add(this.LabelTeacher);
             this.groupBox1.Controls.Add(this.AcceptEditQuota);
             this.groupBox1.Controls.Add(this.EditQuotaAction);
             this.groupBox1.Controls.Add(this.EditQuotaLabel);
@@ -269,7 +279,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.Location = new System.Drawing.Point(494, 32);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(444, 499);
+            this.groupBox1.Size = new System.Drawing.Size(444, 554);
             this.groupBox1.TabIndex = 66;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Статистика";
@@ -278,7 +288,7 @@
             // 
             this.AcceptEditQuota.FlatAppearance.BorderSize = 5;
             this.AcceptEditQuota.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AcceptEditQuota.Location = new System.Drawing.Point(317, 447);
+            this.AcceptEditQuota.Location = new System.Drawing.Point(326, 434);
             this.AcceptEditQuota.Name = "AcceptEditQuota";
             this.AcceptEditQuota.Size = new System.Drawing.Size(112, 31);
             this.AcceptEditQuota.TabIndex = 36;
@@ -289,9 +299,9 @@
             // 
             // EditQuotaAction
             // 
-            this.EditQuotaAction.Location = new System.Drawing.Point(183, 448);
+            this.EditQuotaAction.Location = new System.Drawing.Point(213, 440);
             this.EditQuotaAction.Name = "EditQuotaAction";
-            this.EditQuotaAction.Size = new System.Drawing.Size(90, 22);
+            this.EditQuotaAction.Size = new System.Drawing.Size(107, 22);
             this.EditQuotaAction.TabIndex = 35;
             this.EditQuotaAction.Visible = false;
             // 
@@ -299,7 +309,7 @@
             // 
             this.EditQuotaLabel.AutoSize = true;
             this.EditQuotaLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EditQuotaLabel.Location = new System.Drawing.Point(52, 447);
+            this.EditQuotaLabel.Location = new System.Drawing.Point(19, 434);
             this.EditQuotaLabel.Name = "EditQuotaLabel";
             this.EditQuotaLabel.Size = new System.Drawing.Size(0, 21);
             this.EditQuotaLabel.TabIndex = 34;
@@ -312,7 +322,7 @@
             this.EditQuota.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange;
             this.EditQuota.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
             this.EditQuota.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditQuota.Location = new System.Drawing.Point(317, 218);
+            this.EditQuota.Location = new System.Drawing.Point(323, 175);
             this.EditQuota.Name = "EditQuota";
             this.EditQuota.Size = new System.Drawing.Size(112, 31);
             this.EditQuota.TabIndex = 33;
@@ -326,7 +336,7 @@
             this.CountQuata.AutoSize = true;
             this.CountQuata.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CountQuata.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.CountQuata.Location = new System.Drawing.Point(52, 218);
+            this.CountQuata.Location = new System.Drawing.Point(49, 174);
             this.CountQuata.Name = "CountQuata";
             this.CountQuata.Size = new System.Drawing.Size(0, 21);
             this.CountQuata.TabIndex = 32;
@@ -335,7 +345,7 @@
             // 
             this.AcceptEditBudget.FlatAppearance.BorderSize = 5;
             this.AcceptEditBudget.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AcceptEditBudget.Location = new System.Drawing.Point(314, 374);
+            this.AcceptEditBudget.Location = new System.Drawing.Point(323, 369);
             this.AcceptEditBudget.Name = "AcceptEditBudget";
             this.AcceptEditBudget.Size = new System.Drawing.Size(112, 31);
             this.AcceptEditBudget.TabIndex = 31;
@@ -346,9 +356,9 @@
             // 
             // EditBudgetAction
             // 
-            this.EditBudgetAction.Location = new System.Drawing.Point(183, 375);
+            this.EditBudgetAction.Location = new System.Drawing.Point(213, 375);
             this.EditBudgetAction.Name = "EditBudgetAction";
-            this.EditBudgetAction.Size = new System.Drawing.Size(90, 22);
+            this.EditBudgetAction.Size = new System.Drawing.Size(107, 22);
             this.EditBudgetAction.TabIndex = 30;
             this.EditBudgetAction.Visible = false;
             // 
@@ -356,7 +366,7 @@
             // 
             this.EditBudgetLabel.AutoSize = true;
             this.EditBudgetLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EditBudgetLabel.Location = new System.Drawing.Point(52, 374);
+            this.EditBudgetLabel.Location = new System.Drawing.Point(19, 369);
             this.EditBudgetLabel.Name = "EditBudgetLabel";
             this.EditBudgetLabel.Size = new System.Drawing.Size(0, 21);
             this.EditBudgetLabel.TabIndex = 29;
@@ -365,7 +375,7 @@
             // 
             this.AcceptEditSeat.FlatAppearance.BorderSize = 5;
             this.AcceptEditSeat.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AcceptEditSeat.Location = new System.Drawing.Point(314, 303);
+            this.AcceptEditSeat.Location = new System.Drawing.Point(323, 304);
             this.AcceptEditSeat.Name = "AcceptEditSeat";
             this.AcceptEditSeat.Size = new System.Drawing.Size(112, 31);
             this.AcceptEditSeat.TabIndex = 28;
@@ -376,9 +386,9 @@
             // 
             // EditSeatAction
             // 
-            this.EditSeatAction.Location = new System.Drawing.Point(181, 305);
+            this.EditSeatAction.Location = new System.Drawing.Point(211, 310);
             this.EditSeatAction.Name = "EditSeatAction";
-            this.EditSeatAction.Size = new System.Drawing.Size(90, 22);
+            this.EditSeatAction.Size = new System.Drawing.Size(107, 22);
             this.EditSeatAction.TabIndex = 27;
             this.EditSeatAction.Visible = false;
             // 
@@ -386,7 +396,7 @@
             // 
             this.EditSeatsLabel.AutoSize = true;
             this.EditSeatsLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EditSeatsLabel.Location = new System.Drawing.Point(50, 306);
+            this.EditSeatsLabel.Location = new System.Drawing.Point(17, 307);
             this.EditSeatsLabel.Name = "EditSeatsLabel";
             this.EditSeatsLabel.Size = new System.Drawing.Size(0, 21);
             this.EditSeatsLabel.TabIndex = 26;
@@ -399,7 +409,7 @@
             this.EditBudget.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange;
             this.EditBudget.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
             this.EditBudget.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditBudget.Location = new System.Drawing.Point(317, 167);
+            this.EditBudget.Location = new System.Drawing.Point(323, 124);
             this.EditBudget.Name = "EditBudget";
             this.EditBudget.Size = new System.Drawing.Size(112, 31);
             this.EditBudget.TabIndex = 25;
@@ -413,7 +423,7 @@
             this.CountBudgetLabel.AutoSize = true;
             this.CountBudgetLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CountBudgetLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.CountBudgetLabel.Location = new System.Drawing.Point(52, 169);
+            this.CountBudgetLabel.Location = new System.Drawing.Point(49, 125);
             this.CountBudgetLabel.Name = "CountBudgetLabel";
             this.CountBudgetLabel.Size = new System.Drawing.Size(0, 21);
             this.CountBudgetLabel.TabIndex = 24;
@@ -426,7 +436,7 @@
             this.EditSeats.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange;
             this.EditSeats.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
             this.EditSeats.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditSeats.Location = new System.Drawing.Point(317, 117);
+            this.EditSeats.Location = new System.Drawing.Point(323, 74);
             this.EditSeats.Name = "EditSeats";
             this.EditSeats.Size = new System.Drawing.Size(112, 31);
             this.EditSeats.TabIndex = 23;
@@ -440,7 +450,7 @@
             this.CountSeatsLabel.AutoSize = true;
             this.CountSeatsLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CountSeatsLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.CountSeatsLabel.Location = new System.Drawing.Point(52, 117);
+            this.CountSeatsLabel.Location = new System.Drawing.Point(49, 73);
             this.CountSeatsLabel.Name = "CountSeatsLabel";
             this.CountSeatsLabel.Size = new System.Drawing.Size(0, 21);
             this.CountSeatsLabel.TabIndex = 22;
@@ -453,7 +463,7 @@
             this.AcceptChouse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange;
             this.AcceptChouse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
             this.AcceptChouse.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AcceptChouse.Location = new System.Drawing.Point(317, 25);
+            this.AcceptChouse.Location = new System.Drawing.Point(326, 26);
             this.AcceptChouse.Name = "AcceptChouse";
             this.AcceptChouse.Size = new System.Drawing.Size(112, 31);
             this.AcceptChouse.TabIndex = 21;
@@ -483,6 +493,63 @@
             this.Surname.Size = new System.Drawing.Size(117, 21);
             this.Surname.TabIndex = 19;
             this.Surname.Text = "Выбор группы";
+            // 
+            // LabelTeacher
+            // 
+            this.LabelTeacher.AutoSize = true;
+            this.LabelTeacher.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelTeacher.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LabelTeacher.Location = new System.Drawing.Point(52, 239);
+            this.LabelTeacher.Name = "LabelTeacher";
+            this.LabelTeacher.Size = new System.Drawing.Size(0, 21);
+            this.LabelTeacher.TabIndex = 37;
+            // 
+            // EditTeacher
+            // 
+            this.EditTeacher.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EditTeacher.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
+            this.EditTeacher.FlatAppearance.BorderSize = 5;
+            this.EditTeacher.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange;
+            this.EditTeacher.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.EditTeacher.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditTeacher.Location = new System.Drawing.Point(323, 235);
+            this.EditTeacher.Name = "EditTeacher";
+            this.EditTeacher.Size = new System.Drawing.Size(112, 31);
+            this.EditTeacher.TabIndex = 38;
+            this.EditTeacher.Text = "Изменить";
+            this.EditTeacher.UseVisualStyleBackColor = false;
+            this.EditTeacher.Visible = false;
+            this.EditTeacher.Click += new System.EventHandler(this.EditTeacher_Click);
+            // 
+            // AcceptTeacher
+            // 
+            this.AcceptTeacher.FlatAppearance.BorderSize = 5;
+            this.AcceptTeacher.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AcceptTeacher.Location = new System.Drawing.Point(326, 502);
+            this.AcceptTeacher.Name = "AcceptTeacher";
+            this.AcceptTeacher.Size = new System.Drawing.Size(112, 31);
+            this.AcceptTeacher.TabIndex = 41;
+            this.AcceptTeacher.Text = "Потвердить";
+            this.AcceptTeacher.UseVisualStyleBackColor = false;
+            this.AcceptTeacher.Visible = false;
+            this.AcceptTeacher.Click += new System.EventHandler(this.AcceptTeacher_Click);
+            // 
+            // ActionTeacher
+            // 
+            this.ActionTeacher.Location = new System.Drawing.Point(213, 507);
+            this.ActionTeacher.Name = "ActionTeacher";
+            this.ActionTeacher.Size = new System.Drawing.Size(107, 22);
+            this.ActionTeacher.TabIndex = 40;
+            this.ActionTeacher.Visible = false;
+            // 
+            // labelEditTeacher
+            // 
+            this.labelEditTeacher.AutoSize = true;
+            this.labelEditTeacher.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelEditTeacher.Location = new System.Drawing.Point(19, 502);
+            this.labelEditTeacher.Name = "labelEditTeacher";
+            this.labelEditTeacher.Size = new System.Drawing.Size(0, 21);
+            this.labelEditTeacher.TabIndex = 39;
             // 
             // Groups
             // 
@@ -545,5 +612,10 @@
         private System.Windows.Forms.Button AcceptChouse;
         private System.Windows.Forms.ComboBox ListGroups;
         private System.Windows.Forms.Label Surname;
+        private System.Windows.Forms.Button AcceptTeacher;
+        private System.Windows.Forms.TextBox ActionTeacher;
+        private System.Windows.Forms.Label labelEditTeacher;
+        private System.Windows.Forms.Button EditTeacher;
+        private System.Windows.Forms.Label LabelTeacher;
     }
 }

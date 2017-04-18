@@ -59,22 +59,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201704171741463_Teacher.cs" />
+    <Compile Include="Migrations\201704171741463_Teacher.Designer.cs">
+      <DependentUpon>201704171741463_Teacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CreateDocx.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Docs\CreateDocs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Docs\CreateDocs.Designer.cs">
+      <DependentUpon>CreateDocs.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Main\AddStudent.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Main\AddStudent.Designer.cs">
       <DependentUpon>AddStudent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Groups\ChouseGroupAndSeats.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Groups\ChouseGroupAndSeats.Designer.cs">
-      <DependentUpon>ChouseGroupAndSeats.cs</DependentUpon>
     </Compile>
     <Compile Include="DataModel\DataContext.cs" />
     <Compile Include="DataModel\Group.cs" />
@@ -123,25 +128,33 @@
     <Compile Include="Models\ModelStudentReceived.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Groups\Recevied.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Groups\Recevied.Designer.cs">
-      <DependentUpon>Recevied.cs</DependentUpon>
-    </Compile>
     <Compile Include="DataModel\StudentReceived.cs" />
     <Compile Include="DataModel\Student.cs" />
     <Compile Include="Models\Computing.cs" />
+    <Compile Include="View\Main\Recived.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Main\Recived.Designer.cs">
+      <DependentUpon>Recived.cs</DependentUpon>
+    </Compile>
     <Compile Include="_Students_mdfDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_Students_mdfDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_Students_mdfDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Students_mdfDataSet1.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Migrations\201704171741463_Teacher.resx">
+      <DependentUpon>201704171741463_Teacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Docs\CreateDocs.resx">
+      <DependentUpon>CreateDocs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Main\AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Groups\ChouseGroupAndSeats.resx">
-      <DependentUpon>ChouseGroupAndSeats.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Main\DataBase.resx">
       <DependentUpon>DataBase.cs</DependentUpon>
@@ -172,8 +185,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Groups\Recevied.resx">
-      <DependentUpon>Recevied.cs</DependentUpon>
+    <EmbeddedResource Include="View\Main\Recived.resx">
+      <DependentUpon>Recived.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -195,6 +208,17 @@
     </None>
     <None Include="_Students_mdfDataSet.xss">
       <DependentUpon>_Students_mdfDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_Students_mdfDataSet1.xsc">
+      <DependentUpon>_Students_mdfDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_Students_mdfDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_Students_mdfDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_Students_mdfDataSet1.xss">
+      <DependentUpon>_Students_mdfDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

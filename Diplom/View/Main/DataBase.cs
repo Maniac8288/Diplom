@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diplom.View.Main;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ namespace Diplom.View.Main
     public partial class DataBase : Form
     {
         EditStudent EditStudent;
-        Recevied Recivied;
+        Recived Recivied;
 
         public DataBase()
         {
@@ -34,9 +35,21 @@ namespace Diplom.View.Main
             {
                 try
                 {
-                    int student = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                    Computing.Instance.DeleteStudent(student);
-                    dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+                   DialogResult result = MessageBox.Show(
+                       "Вы действительно хотите удалить выбранного абитуриента",
+                       "Удаление",
+                       MessageBoxButtons.YesNo,
+                       MessageBoxIcon.Warning,
+                       MessageBoxDefaultButton.Button1 );
+                    if (result == DialogResult.Yes)
+                    {
+                        int student = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                        Computing.Instance.DeleteStudent(student,false);
+                        dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+
+                    }
+                    
+                   
                 }
                 catch
                 {
@@ -64,9 +77,10 @@ namespace Diplom.View.Main
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Computing.Instance.DeleteExcess();
-            Recivied = new Recevied();
+
+            Recivied = new Recived();
             Recivied.Show();
+            this.Close();
 
         }
     }

@@ -14,15 +14,16 @@ namespace Diplom.Models
         /// </summary>
         /// <param name="key">Код группы</param>
         /// <returns></returns>
-        public List<int> ChouseGroups(string key)
+        public List<string> ChouseGroups(string key)
         {
             using (DataContext db = new DataContext())
             {
                 var group = db.Groups.FirstOrDefault(x => x.key == key);
-                List<int> Seats = new List<int>();
-                Seats.Add(group.CountSeats);
-                Seats.Add(group.CountBudget);
-                Seats.Add(group.Quota);
+                List<string> Seats = new List<string>();
+                Seats.Add(group.CountSeats.ToString());
+                Seats.Add(group.CountBudget.ToString());
+                Seats.Add(group.Quota.ToString());
+                Seats.Add(group.Teacher);
 
                 return Seats;
             }
@@ -84,7 +85,20 @@ namespace Diplom.Models
                 }
             }
         }
-
+        /// <summary>
+        /// Изменяет класного руководителя
+        /// </summary>
+        /// <param name="key">Код группы</param>
+        /// <param name="Name">Новый учитель</param>
+        public void EditTeacher(string key, string Name)
+        {
+            using (DataContext db = new DataContext())
+            {
+                    var group = db.Groups.FirstOrDefault(x => x.key == key);
+                    group.Teacher = Name;
+                    db.SaveChanges();
+            }
+        }
         #region Статистика        
         /// <summary>
         /// Подсчитывает количество мест в учебном заведение

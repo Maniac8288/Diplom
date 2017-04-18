@@ -166,5 +166,6 @@ namespace Diplom
         /// Родительский телефон
         /// </value>
         public string PhonePareant { get; set; }
+      
     }
 }

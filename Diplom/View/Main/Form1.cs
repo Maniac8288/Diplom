@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 using System.IO;
 using Diplom.View.Main;
+using Diplom.View.Docs;
 
 namespace Diplom
 {
@@ -19,6 +20,7 @@ namespace Diplom
         {
             InitializeComponent();
         }
+        CreateDocs createDocs;
         AddStudent addStudent;
         DataBase dataBase;
       
@@ -41,36 +43,39 @@ namespace Diplom
 
         private void button3_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.Filter="Word | *.docx";
-            saveFileDialog1.DefaultExt = "docx";
-            openFileDialog1.Filter = "Word | *.docx";
-            DialogResult Open = MessageBox.Show("Выбрать вордовский шаблон", "Открытие шаблона", 
-                MessageBoxButtons.OKCancel,
-                MessageBoxIcon.Asterisk,
-                MessageBoxDefaultButton.Button1,
-                MessageBoxOptions.DefaultDesktopOnly);
-            if (Open == DialogResult.OK)
-            {
-                if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
-                    return;
-                // получаем выбранный файл
-                string filename = openFileDialog1.FileName;
+            createDocs = new CreateDocs();
+            createDocs.Show();
 
-                DialogResult Save = MessageBox.Show("Выбрать путь сохранения файла", "Сохранение",
-                MessageBoxButtons.OKCancel,
-                MessageBoxIcon.Asterisk,
-                MessageBoxDefaultButton.Button1,
-                MessageBoxOptions.DefaultDesktopOnly);
-                if (Save == DialogResult.OK)
-                {
-                    if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
-                        return;
-                    // получаем выбранный файл
-                    string filenameSave = saveFileDialog1.FileName;
-                    string result = Computing.Instance.CreateDocx(filename, filenameSave);
-                    MessageBox.Show(result);
-                }
-            }
+            //saveFileDialog1.Filter="Word | *.docx";
+            //saveFileDialog1.DefaultExt = "docx";
+            //openFileDialog1.Filter = "Word | *.docx";
+            //DialogResult Open = MessageBox.Show("Выбрать вордовский шаблон", "Открытие шаблона", 
+            //    MessageBoxButtons.OKCancel,
+            //    MessageBoxIcon.Asterisk,
+            //    MessageBoxDefaultButton.Button1,
+            //    MessageBoxOptions.DefaultDesktopOnly);
+            //if (Open == DialogResult.OK)
+            //{
+            //    if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
+            //        return;
+            //    // получаем выбранный файл
+            //    string filename = openFileDialog1.FileName;
+
+            //    DialogResult Save = MessageBox.Show("Выбрать путь сохранения файла", "Сохранение",
+            //    MessageBoxButtons.OKCancel,
+            //    MessageBoxIcon.Asterisk,
+            //    MessageBoxDefaultButton.Button1,
+            //    MessageBoxOptions.DefaultDesktopOnly);
+            //    if (Save == DialogResult.OK)
+            //    {
+            //        if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+            //            return;
+            //        // получаем выбранный файл
+            //        string filenameSave = saveFileDialog1.FileName;
+            //        string result = Computing.Instance.CreateDocx(filename, filenameSave);
+            //        MessageBox.Show(result);
+            //    }
+            //}
         }
 
         private void Exit_Click(object sender, EventArgs e)

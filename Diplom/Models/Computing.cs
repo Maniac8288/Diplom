@@ -60,13 +60,22 @@ namespace Diplom
         /// Удаление студента из базы данных
         /// </summary>
         /// <param name="Id">Ид студента.</param>
-        public void DeleteStudent(int Id)
+        public void DeleteStudent(int Id, bool recived)
         {
             using (DataContext db= new DataContext())
             {
-                var student = db.Students.FirstOrDefault(x => x.ID == Id);
-                db.Students.Remove(student);
-                db.SaveChanges();
+                if (recived == false)
+                {
+                    var student = db.Students.FirstOrDefault(x => x.ID == Id);
+                    db.Students.Remove(student);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var student = db.SdudentsRecevieds.FirstOrDefault(x => x.ID == Id);
+                    db.SdudentsRecevieds.Remove(student);
+                    db.SaveChanges();
+                }
             }
         }
         /// <summary>
@@ -324,92 +333,7 @@ namespace Diplom
             return Math.Round(gpa, 2);
         }
 
-        /// <summary>
-        /// Создает новый вордовский документ и заполняет его данными
-        /// </summary>
-        /// <param name="filename">Шаблон на основе, которого создается новый документ.</param>
-        /// <param name="filenameSave">Путь сохранения нового документа.</param>
-        /// <returns>Сообщение о результате.</returns>
-        public string CreateDocx(string filename, string filenameSave)
-        {
-            using (var db = new DataContext())
-            {
-                var wordapp = new Word.Application();
-                wordapp.Visible = false;
-                var worddocument = wordapp.Documents.Open(filename);
-                Word.Table table = worddocument.Tables[1];
-                int i = 1;
-                try
-                { 
-                  foreach(var student in db.Students)
-                    {
-                        i++;
-                       //Добавление строки с закладками для данных
-                        table.Rows.Add();
-                        table.Cell(i, 1).Range.Text = "{id}";
-                        table.Cell(i, 2).Range.Text = "{name}";
-                        table.Cell(i, 3).Range.Text = "{DateDocument}";
-                        table.Cell(i, 4).Range.Text = "{DateBirth}";
-                        table.Cell(i, 5).Range.Text = "{Language}";
-                        table.Cell(i, 6).Range.Text = "{ForeignLanguage}";
-                        table.Cell(i, 7).Range.Text = "{School} {EndSchool}";
-                        table.Cell(i, 8).Range.Text = "{GPA}";
-                        table.Cell(i, 9).Range.Text = "{House} {PhonePareant}";
-                        table.Cell(i, 10).Range.Text = "{MilitaryID}";
-                        table.Cell(i, 11).Range.Text = "{Documents}";
-                        table.Cell(i, 12).Range.Text = "{Sex}";
-                        table.Cell(i, 13).Range.Text = "{Dormitories}";
-                        table.Cell(i, 14).Range.Text = "{Phone}";
-                        table.Cell(i, 15).Range.Text = "{Citizenship}";
-                        table.Cell(i, 16).Range.Text = "{Social}";
-                        table.Cell(i, 17).Range.Text = "{Nationality}";
-                        table.Cell(i, 18).Range.Text = "{NumberGroup}";
-                        // Замена закладок на данные из БД
-                        ReplaceWordSub("{id}", student.ID.ToString(), worddocument);
-                        ReplaceWordSub("{name}", student.SurName + " "+student.NameStudent+" "+student.SecondName, worddocument);
-                        ReplaceWordSub("{DateDocument}", student.DateDocument.ToLongDateString().ToString(), worddocument);
-                        ReplaceWordSub("{DateBirth}", student.DateBirth.ToLongDateString().ToString(), worddocument);
-                        ReplaceWordSub("{Language}", student.Language, worddocument);
-                        ReplaceWordSub("{ForeignLanguage}", student.ForeignLanguage, worddocument);
-                        ReplaceWordSub("{School}", student.School+" ", worddocument);
-                        ReplaceWordSub("{EndSchool}", student.EndSchool.ToLongDateString().ToString(), worddocument);
-                        ReplaceWordSub("{GPA}", student.GPA.ToString(), worddocument);
-                        ReplaceWordSub("{House}", student.House, worddocument);
-                        ReplaceWordSub("{PhonePareant}", student.PhonePareant, worddocument);
-                        ReplaceWordSub("{MilitaryID}", student.MilitaryID, worddocument);
-                        ReplaceWordSub("{Documents}", student.Documents, worddocument);
-                        ReplaceWordSub("{Sex}", student.Sex, worddocument);
-                        ReplaceWordSub("{Dormitories}", student.Dormitories, worddocument);
-                        ReplaceWordSub("{Phone}", student.Phone, worddocument);
-                        ReplaceWordSub("{Citizenship}", student.Citizenship , worddocument);
-                        ReplaceWordSub("{Social}", student.Social, worddocument);
-                        ReplaceWordSub("{Nationality}", student.Nationality, worddocument);
-                        ReplaceWordSub("{NumberGroup}", student.NumberGroup, worddocument);
-                    }
-                    worddocument.SaveAs(filenameSave);
-                    worddocument.Close();
-                    return "Файл успешно сохранен ";
-                }
-                catch (Exception ex)
-                {
-                    try
-                    {
-                        worddocument.Close();
-                    }
-                    catch
-                    {
-
-                    }
-                    return ex.ToString();
-                }
-            }
-        }
-        private void ReplaceWordSub(string stubToReplace, string text, Word.Document WordDocument)
-        {
-            var range = WordDocument.Content;
-            range.Find.ClearFormatting();
-            range.Find.Execute(FindText: stubToReplace, ReplaceWith: text);
-        }
+      
        
     }
 }

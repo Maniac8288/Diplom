@@ -13,20 +13,20 @@ namespace Diplom
 {
     public partial class Groups : Form
     {
-        ChouseGroupAndSeats chouseGroupAndSeats;
+
         public Groups()
         {
             InitializeComponent();
         }
 
-    
+
 
         private void Groups_Load(object sender, EventArgs e)
         {
-            SeatAll.Text= GroupsComputing.Instance.CountSeatAll().ToString();
+            SeatAll.Text = GroupsComputing.Instance.CountSeatAll().ToString();
             BudgetAll.Text = GroupsComputing.Instance.CountBudgetAll().ToString();
             Seat.Text = GroupsComputing.Instance.CountSeat().ToString();
-            Budget.Text = GroupsComputing.Instance.CountBudget().ToString();            
+            Budget.Text = GroupsComputing.Instance.CountBudget().ToString();
         }
 
         private void Update_Click(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace Diplom
             Seat.Text = GroupsComputing.Instance.CountSeat().ToString();
             Budget.Text = GroupsComputing.Instance.CountBudget().ToString();
         }
-     
+
         private void AcceptChouse_Click_1(object sender, EventArgs e)
         {
             if (ListGroups.Text.ToString() == "")
@@ -48,15 +48,20 @@ namespace Diplom
                 var key = ListGroups.Text.ToString();
                 try
                 {
-                    List<int> Seats = GroupsComputing.Instance.ChouseGroups(key);
+                    List<string> Seats = GroupsComputing.Instance.ChouseGroups(key);
 
 
-                    CountSeatsLabel.Text = "Количество мест: " + Seats[0].ToString();
+                    CountSeatsLabel.Text = "Количество мест: " + Seats[0];
                     EditSeats.Visible = true;
-                    CountBudgetLabel.Text = "Бюджетные места: " + Seats[1].ToString();
+                    CountBudgetLabel.Text = "Бюджетные места: " + Seats[1];
                     EditBudget.Visible = true;
-                    CountQuata.Text = "Квота: " + Seats[2].ToString();
+                    CountQuata.Text = "Квота: " + Seats[2];
                     EditQuota.Visible = true;
+                    LabelTeacher.Text = "Кл. Руководитель:" + Seats[3];
+                    EditTeacher.Visible = true;
+                    labelEditTeacher.Text = "";
+                    ActionTeacher.Visible = false;
+                    AcceptTeacher.Visible = false;
                     EditBudgetLabel.Text = "";
                     EditBudgetAction.Visible = false;
                     AcceptEditBudget.Visible = false;
@@ -80,17 +85,17 @@ namespace Diplom
         private void EditSeats_Click_1(object sender, EventArgs e)
         {
             var key = ListGroups.Text.ToString();
-            List<int> Seats = GroupsComputing.Instance.ChouseGroups(key);
+            List<string> Seats = GroupsComputing.Instance.ChouseGroups(key);
             EditSeatsLabel.Text = "Введите кол-во";
             EditSeatAction.Visible = true;
             AcceptEditSeat.Visible = true;
-            EditSeatAction.Text = Seats[0].ToString();
+            EditSeatAction.Text = Seats[0];
         }
 
         private void EditBudget_Click_1(object sender, EventArgs e)
         {
             var key = ListGroups.Text.ToString();
-            List<int> Seats = GroupsComputing.Instance.ChouseGroups(key);
+            List<string> Seats = GroupsComputing.Instance.ChouseGroups(key);
             EditBudgetLabel.Text = "Введите кол-во";
             EditBudgetAction.Visible = true;
             AcceptEditBudget.Visible = true;
@@ -100,13 +105,22 @@ namespace Diplom
         private void EditQuota_Click_1(object sender, EventArgs e)
         {
             var key = ListGroups.Text.ToString();
-            List<int> Seats = GroupsComputing.Instance.ChouseGroups(key);
+            List<string> Seats = GroupsComputing.Instance.ChouseGroups(key);
             EditQuotaLabel.Text = "Введите кол-во";
             EditQuotaAction.Visible = true;
             AcceptEditQuota.Visible = true;
             EditQuotaAction.Text = Seats[2].ToString();
         }
-
+        private void EditTeacher_Click(object sender, EventArgs e)
+        {
+            var key = ListGroups.Text.ToString();
+            List<string> Seats = GroupsComputing.Instance.ChouseGroups(key);
+            labelEditTeacher.Text = "Имя кл. Руководителя";
+            ActionTeacher.Visible = true;
+            AcceptTeacher.Visible = true;
+            if (Seats[3] == null) Seats[3] = "";
+            ActionTeacher.Text = Seats[3].ToString();
+        }
         private void AcceptEditSeat_Click_1(object sender, EventArgs e)
         {
             var key = ListGroups.Text.ToString();
@@ -131,15 +145,17 @@ namespace Diplom
             try
             {
                 int count = Convert.ToInt32(EditBudgetAction.Text.ToString());
-                if (GroupsComputing.Instance.EditBudgetSeats(key, count) == "") {
+                if (GroupsComputing.Instance.EditBudgetSeats(key, count) == "")
+                {
                     MessageBox.Show("Количество бюджетных мест слишком вилеко");
                 }
-                else{
+                else
+                {
                     CountBudgetLabel.Text = "Бюджетные места: " + EditBudgetAction.Text.ToString();
                     EditBudgetLabel.Text = "";
                     EditBudgetAction.Visible = false;
                     AcceptEditBudget.Visible = false;
-                  
+
                 }
             }
             catch
@@ -170,6 +186,18 @@ namespace Diplom
             {
                 MessageBox.Show("Введите корректное количество");
             }
+        }
+
+        private void AcceptTeacher_Click(object sender, EventArgs e)
+        {
+      
+            var key = ListGroups.Text.ToString();
+            string Name = ActionTeacher.Text.ToString();
+            GroupsComputing.Instance.EditTeacher(key, Name);
+            LabelTeacher.Text = "Кл. Руководитель:" + ActionTeacher.Text.ToString();
+            labelEditTeacher.Text = "";
+            ActionTeacher.Visible = false;
+            AcceptTeacher.Visible = false;
         }
     }
 }

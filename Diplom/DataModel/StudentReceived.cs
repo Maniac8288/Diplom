@@ -173,6 +173,7 @@ namespace Diplom
         /// Контракт или бюджет
         /// </value>
         public string Contract { get; set; }
+     
     }
 
 }

@@ -54,6 +54,13 @@ namespace Diplom.DataModel
         /// Квота
         /// </value>
         public int Quota { get; set; }
+        /// <summary>
+        /// Классный руководитель
+        /// </summary>
+        /// <value>
+        /// Руководитель
+        /// </value>
+        public string Teacher { get; set; }
     }
  
 }
